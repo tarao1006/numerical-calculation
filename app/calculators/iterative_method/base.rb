@@ -1,6 +1,6 @@
 require 'matrix'
 
-class IterativeMethod
+class Base
 
   def core
   end
@@ -20,6 +20,11 @@ class IterativeMethod
     @iter = 0
 
     self.core
+
+    if @iter > 1000
+      @new_x = Vector[]
+      @iter = -1
+    end
 
     [@new_x, @iter]
   end

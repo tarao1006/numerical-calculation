@@ -1,5 +1,6 @@
-require_relative '../../../calculators/jacobi_method'
-require_relative '../../../calculators/gauss_seidel_method'
+require_relative '../../../calculators/iterative_method/jacobi_method'
+require_relative '../../../calculators/iterative_method/gauss_seidel_method'
+require_relative '../../../calculators/iterative_method/sor_method'
 
 
 module Api
@@ -29,8 +30,9 @@ module Api
       def sor_method
         mat = params[:matrix]
         b = params[:b]
+        omega = params[:omega] ? params[:omega] : 1.5
 
-        calculator = SorMethod.new
+        calculator = SorMethod.new omega
         ans, iter = calculator.run(mat, b)
 
         render json: { status: 'SUCCESS', ans: ans, count: iter }

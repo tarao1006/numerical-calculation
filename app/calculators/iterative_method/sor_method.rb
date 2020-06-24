@@ -1,9 +1,21 @@
 require 'matrix'
-require_relative './iterative_method'
+require_relative './base'
 
-class SorMethod < IterativeMethod
+class SorMethod < Base
 
-  def core(omega = 1.4)
+  def initialize(omega = 1.5)
+    @omega = omega
+  end
+
+  def validate_omega
+    if @omega >= 2.0 or @omega <= 0
+      @omega = 1.5
+    end
+  end
+
+  def core
+    validate_omega
+
     while true do
       @iter = @iter.succ
       (0...@n).each do |i|
@@ -20,7 +32,7 @@ class SorMethod < IterativeMethod
         end
 
         @new_x[i] = (@mat_b[i] - tmp) / @mat_a[i, i]
-        @new_x[i] = @old_x[i] + omega * (@new_x[i] - @old_x[i])
+        @new_x[i] = @old_x[i] + @omega * (@new_x[i] - @old_x[i])
       end
 
       err = 0.0
@@ -31,11 +43,6 @@ class SorMethod < IterativeMethod
         break
       else
         @old_x = @new_x.clone
-      end
-
-      if @iter > 1000
-        @new_x = Vector[]
-        @iter = -1
       end
     end
   end
