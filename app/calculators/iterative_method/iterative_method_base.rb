@@ -5,6 +5,13 @@ class IterativeMethodBase
   def core
   end
 
+  def validate
+    @is_valid = true
+    if (@mat_a.column_size != @mat_a.row_size) or (@mat_a.row_size != @mat_b.size)
+      @is_valid = false
+    end
+  end
+
   def run(a, b)
     @eps = 1e-15
 
