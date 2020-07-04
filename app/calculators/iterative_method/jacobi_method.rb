@@ -1,5 +1,5 @@
 require 'matrix'
-require_relative './iteration_method_base'
+require_relative './iterative_method_base'
 
 class JacobiMethod < IterativeMethodBase
 
