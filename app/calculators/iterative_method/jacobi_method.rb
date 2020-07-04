@@ -8,9 +8,13 @@ class JacobiMethod < IterativeMethodBase
 
     _, d, _ = @mat_a.eigensystem
     d.row_vectors.each do |e|
-      if e.sum < 1
+      begin
+        if e.sum < 1
+          @is_valid = false
+          break
+        end
+      rescue
         @is_valid = false
-        break
       end
     end
   end
