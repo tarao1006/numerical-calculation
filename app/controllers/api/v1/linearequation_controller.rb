@@ -18,7 +18,13 @@ module Api
         calculator = JacobiMethod.new
         ans, iter = calculator.run(mat, b)
 
-        render json: { status: 'SUCCESS', ans: ans, count: iter, mat: mat, b: b }
+        status = if (ans.to_a.length == 0) and iter < 0
+          'FAILURE'
+        else
+          'SUCCESS'
+        end
+
+        render json: { status: status, ans: ans, count: iter, mat: mat, b: b }
       end
 
       def gauss_seidel_method
