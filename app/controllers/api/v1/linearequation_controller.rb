@@ -7,6 +7,10 @@ module Api
   module V1
     class LinearequationController < ApplicationController
 
+      def echo
+        render json: { status: 'SUCCESS', data: params[:data] }
+      end
+
       def jacobi_method
         mat = params[:matrix]
         b = params[:b]
