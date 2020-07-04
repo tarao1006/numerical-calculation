@@ -14,7 +14,7 @@ module Api
         calculator = JacobiMethod.new
         ans, iter = calculator.run(mat, b)
 
-        render json: { status: 'SUCCESS', ans: ans, count: iter }
+        render json: { status: 'SUCCESS', ans: ans, count: iter, mat: mat, b: b }
       end
 
       def gauss_seidel_method
@@ -24,7 +24,7 @@ module Api
         calculator = GaussSeidelMethod.new
         ans, iter = calculator.run(mat, b)
 
-        render json: { status: 'SUCCESS', ans: ans, count: iter }
+        render json: { status: 'SUCCESS', ans: ans, count: iter, mat: mat, b: b }
       end
 
       def sor_method
@@ -35,7 +35,7 @@ module Api
         calculator = SorMethod.new omega
         ans, iter = calculator.run(mat, b)
 
-        render json: { status: 'SUCCESS', ans: ans, count: iter }
+        render json: { status: 'SUCCESS', ans: ans, count: iter, mat: mat, b: b }
       end
     end
   end
