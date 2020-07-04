@@ -1,6 +1,6 @@
 require 'matrix'
 
-class Base
+class IterativeMethodBase
 
   def core
   end

@@ -1,7 +1,7 @@
 require 'matrix'
-require_relative './base'
+require_relative './iteration_method_base'
 
-class JacobiMethod < Base
+class JacobiMethod < IterativeMethodBase
 
   def core
     while true do

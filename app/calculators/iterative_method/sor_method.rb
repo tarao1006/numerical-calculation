@@ -1,7 +1,7 @@
 require 'matrix'
-require_relative './base'
+require_relative './iterative_method_base'
 
-class SorMethod < Base
+class SorMethod < IterativeMethodBase
 
   def initialize(omega = 1.5)
     @omega = omega

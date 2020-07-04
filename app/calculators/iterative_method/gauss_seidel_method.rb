@@ -1,7 +1,7 @@
 require 'matrix'
-require_relative './base'
+require_relative './iterative_method_base'
 
-class GaussSeidelMethod < Base
+class GaussSeidelMethod < IterativeMethodBase
 
   def core
     while true do
