@@ -20,6 +20,10 @@ class IterativeMethodBase
 
     self.validate
 
+    unless @is_valid
+      return [Vector[], -1]
+    end
+
     @n = @mat_a.column_size
 
     random = Random.new(1)
