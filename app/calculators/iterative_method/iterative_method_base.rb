@@ -18,6 +18,8 @@ class IterativeMethodBase
     @mat_a = Matrix[*a].map(&:to_f)
     @mat_b = Vector[*b].map(&:to_f)
 
+    self.validate
+
     @n = @mat_a.column_size
 
     random = Random.new(1)
