@@ -5,6 +5,7 @@ class IterativeMethodBase
   def initialize(a, b)
     @mat_a = Matrix[*a].map(&:to_f)
     @mat_b = Vector[*b].map(&:to_f)
+    @n = @mat_a.column_size
   end
 
   def core
@@ -25,8 +26,6 @@ class IterativeMethodBase
     unless @is_valid
       return [Vector[], -1]
     end
-
-    @n = @mat_a.column_size
 
     random = Random.new(1)
     @old_x = Vector.zero(@n).map{ |x| x + random.rand }

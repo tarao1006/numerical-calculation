@@ -3,6 +3,18 @@ require_relative './iterative_method_base'
 
 class JacobiMethod < IterativeMethodBase
 
+  def validate
+    super
+
+    _, d, _ = @mat_a.eigensystem
+    d.row_vectors.each do |e|
+      if e.sum < 1
+        @is_valid = false
+        break
+      end
+    end
+  end
+
   def core
     while true do
       @iter = @iter.succ
