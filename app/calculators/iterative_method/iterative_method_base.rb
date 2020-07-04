@@ -2,6 +2,11 @@ require 'matrix'
 
 class IterativeMethodBase
 
+  def initialize(a, b)
+    @mat_a = Matrix[*a].map(&:to_f)
+    @mat_b = Vector[*b].map(&:to_f)
+  end
+
   def core
   end
 
@@ -12,11 +17,8 @@ class IterativeMethodBase
     end
   end
 
-  def run(a, b)
+  def run
     @eps = 1e-15
-
-    @mat_a = Matrix[*a].map(&:to_f)
-    @mat_b = Vector[*b].map(&:to_f)
 
     self.validate
 

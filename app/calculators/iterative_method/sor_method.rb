@@ -3,7 +3,8 @@ require_relative './iterative_method_base'
 
 class SorMethod < IterativeMethodBase
 
-  def initialize(omega = 1.5)
+  def initialize(a, b, omega = 1.5)
+    super(a, b)
     @omega = omega
   end
 
