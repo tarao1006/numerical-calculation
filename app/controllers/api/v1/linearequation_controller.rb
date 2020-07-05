@@ -19,10 +19,10 @@ module Api
         ans, iter = calculator.run
 
         status = if (ans.to_a.length == 0) and iter < 0
-          'FAILURE'
-        else
-          'SUCCESS'
-        end
+                   'FAILURE'
+                 else
+                   'SUCCESS'
+                 end
 
         render json: { status: status, ans: ans, count: iter, mat: mat, b: b }
       end
@@ -34,7 +34,13 @@ module Api
         calculator = GaussSeidelMethod.new(mat, b)
         ans, iter = calculator.run
 
-        render json: { status: 'SUCCESS', ans: ans, count: iter, mat: mat, b: b }
+        status = if (ans.to_a.length == 0) and iter < 0
+                   'FAILURE'
+                 else
+                   'SUCCESS'
+                 end
+
+        render json: { status: status, ans: ans, count: iter, mat: mat, b: b }
       end
 
       def sor_method
@@ -45,7 +51,13 @@ module Api
         calculator = SorMethod.new(mat, b, omega)
         ans, iter = calculator.run
 
-        render json: { status: 'SUCCESS', ans: ans, count: iter, mat: mat, b: b }
+        status = if (ans.to_a.length == 0) and iter < 0
+                   'FAILURE'
+                 else
+                   'SUCCESS'
+                 end
+
+        render json: { status: status, ans: ans, count: iter, mat: mat, b: b }
       end
     end
   end
