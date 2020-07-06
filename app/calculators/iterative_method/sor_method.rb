@@ -8,22 +8,6 @@ class SorMethod < IterativeMethodBase
     @omega = omega
   end
 
-  def validate
-    super
-
-    _, d, _ = @mat_a.eigensystem
-    d.row_vectors.each do |e|
-      begin
-        if e.sum < 1
-          @is_valid = false
-          break
-        end
-      rescue
-        @is_valid = false
-      end
-    end
-  end
-
   def validate_omega
     if @omega >= 2.0 or @omega <= 0
       @omega = 1.5

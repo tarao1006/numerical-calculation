@@ -3,22 +3,6 @@ require_relative './iterative_method_base'
 
 class GaussSeidelMethod < IterativeMethodBase
 
-  def validate
-    super
-
-    _, d, _ = @mat_a.eigensystem
-    d.row_vectors.each do |e|
-      begin
-        if e.sum < 1
-          @is_valid = false
-          break
-        end
-      rescue
-        @is_valid = false
-      end
-    end
-  end
-
   def core
     while true do
       @iter = @iter.succ
