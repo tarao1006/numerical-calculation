@@ -167,12 +167,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  actionpack (>= 6.0.3.2)
   bootsnap (>= 1.4.2)
   byebug
   listen (~> 3.2)
   puma (~> 4.1)
-  rack (>= 2.2.3)
   rack-cors
   rails (>= 6.0.3.2)
   rspec-rails
