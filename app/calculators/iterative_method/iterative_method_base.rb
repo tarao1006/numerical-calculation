@@ -2,6 +2,33 @@ require 'matrix'
 
 class IterativeMethodBase
 
+  def is_square_matrix(mat)
+    mat.column_size == mat.row_size
+  end
+
+  def is_diagonally_dominant_matrix(mat)
+    unless is_square_matrix mat
+      return false
+    end
+
+    n = mat.row_size
+
+    (0...n).each do |i|
+      s = 0.0
+      (0...n).each do |j|
+        unless i == j
+          s += mat[i, j]
+        end
+      end
+
+      if mat[i, i] < s
+        return false
+      end
+    end
+
+    true
+  end
+
   def initialize(a, b)
     @mat_a = Matrix[*a].map(&:to_f)
     @mat_b = Vector[*b].map(&:to_f)
@@ -13,9 +40,11 @@ class IterativeMethodBase
 
   def validate
     @is_valid = true
-    if (@mat_a.column_size != @mat_a.row_size) or (@mat_a.row_size != @mat_b.size)
+    if (!is_square_matrix(@mat_a)) or (@mat_a.row_size != @mat_b.size)
       @is_valid = false
     end
+
+    @is_valid = is_diagonally_dominant_matrix @mat_a
   end
 
   def run
