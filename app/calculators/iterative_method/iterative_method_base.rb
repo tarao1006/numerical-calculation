@@ -2,6 +2,7 @@ require 'matrix'
 
 class IterativeMethodBase
 
+  attr_reader :is_valid
   def is_square_matrix(mat)
     mat.column_size == mat.row_size
   end
