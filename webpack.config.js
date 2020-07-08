@@ -28,5 +28,8 @@ module.exports = {
         template: path.resolve(__dirname, "frontend/src/index.html")
       }
     )
-  ]
+  ],
+  resolve: {
+    extensions: ['.js', '.jsx']
+  }
 }
