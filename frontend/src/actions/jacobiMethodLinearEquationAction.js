@@ -1,44 +1,66 @@
+import { useDispatch, useSelector } from 'react-redux'
+
 export const UPDATE = 'UPDATE'
 export const INCREMENT = 'INCREMENT'
 export const DECREMENT = 'DECREMENT'
 export const CHANGE_COEFFICIENT_MATRIX_VALUE = 'CHANGE_COEFFICIENT_MATRIX_VALUE';
 export const CHANGE_RIGHT_HAND_SIDE_VECTOR_VALUE = 'CHANGE_RIGHT_HAND_SIDE_VECTOR_VALUE';
 
-export const update = (size, mat, vec) => {
-  return {
-    type: UPDATE,
+const useJacobiMethodLinearEquation = () => {
+  const size = useSelector(state => state.jacobiMethodLinearEquation.size)
+  const coefficientMatrix = useSelector(state => state.jacobiMethodLinearEquation.coefficientMatrix)
+  const rightHandSideVector = useSelector(state => state.jacobiMethodLinearEquation.rightHandSideVector)
+  const dispatch = useDispatch()
+
+  const update = (size, mat, vec) => {
+    dispatch({
+      type: UPDATE,
+      size,
+      mat,
+      vec
+    })
+  }
+
+  const increment = () => {
+    dispatch({
+      type: INCREMENT
+    })
+  }
+
+  const decrement = () => {
+    dispatch({
+      type: DECREMENT
+    })
+  }
+
+  const changeCoefficientMatrixValue = (x, y, value) => {
+    dispatch({
+      type: CHANGE_COEFFICIENT_MATRIX_VALUE,
+      x,
+      y,
+      value
+    })
+  }
+
+  const changeRightHandSideVectorValue = (x, y, value) => {
+    dispatch({
+      type: CHANGE_RIGHT_HAND_SIDE_VECTOR_VALUE,
+      x,
+      y,
+      value
+    })
+  }
+
+  return [
     size,
-    mat,
-    vec
-  }
+    coefficientMatrix,
+    rightHandSideVector,
+    update,
+    increment,
+    decrement,
+    changeCoefficientMatrixValue,
+    changeRightHandSideVectorValue
+  ]
 }
 
-export const increment = () => {
-  return {
-    type: INCREMENT
-  }
-}
-
-export const decrement = () => {
-  return {
-    type: DECREMENT
-  }
-}
-
-export const changeCoefficientMatrixValue = (x, y, value) => {
-  return {
-    type: CHANGE_COEFFICIENT_MATRIX_VALUE,
-    x,
-    y,
-    value
-  }
-}
-
-export const changeRightHandSideVectorValue = (x, y, value) => {
-  return {
-    type: CHANGE_RIGHT_HAND_SIDE_VECTOR_VALUE,
-    x,
-    y,
-    value
-  }
-}
+export default useJacobiMethodLinearEquation
