@@ -51,7 +51,7 @@ const useJacobiMethodLinearEquation = () => {
     })
   }
 
-  return [
+  return {
     size,
     coefficientMatrix,
     rightHandSideVector,
@@ -60,7 +60,7 @@ const useJacobiMethodLinearEquation = () => {
     decrement,
     changeCoefficientMatrixValue,
     changeRightHandSideVectorValue
-  ]
+  }
 }
 
 export default useJacobiMethodLinearEquation
