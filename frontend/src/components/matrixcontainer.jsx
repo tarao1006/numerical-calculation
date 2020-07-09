@@ -78,8 +78,10 @@ export default MatrixContainer
 
 const Container = styled.div`
   max-width: 700px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 `
 
 const Label = styled.label`
@@ -87,7 +89,7 @@ const Label = styled.label`
 `
 
 const MatrixWrapper = styled.div`
-  width: 700px;
+  max-width: 700px;
   margin-top: 20px;
   margin-bottom: 20px;
   padding-bottom: 20px;
@@ -96,7 +98,7 @@ const MatrixWrapper = styled.div`
 `
 
 const VectorWrapper = styled.div`
-  width: 700px;
+  max-width: 700px;
   margin-top: 20px;
   margin-bottom: 20px;
   padding-bottom: 20px;
@@ -113,5 +115,4 @@ const StatusWrapper = styled.div`
   border-radius: 10px;
   color: white;
   background: ${props => props.status ? "#5cb85c" : "#d9534f"};
-  border: ${props => props.status ? "green" : "red"} 2px solid;
 `
