@@ -38,21 +38,21 @@ const Root = ({ url }) => {
   return (
     <>
       <Card>
-        <Link to={ `${url}jacobi_method` }>
+        <Link to={ `${url}/jacobi_method` }>
           <Method>
             ヤコビ法
           </Method>
         </Link>
       </Card>
       <Card>
-        <Link to={ `${url}gauss_seidel_method` }>
+        <Link to={ `${url}/gauss_seidel_method` }>
           <Method>
             ガウス・ザイデル法
           </Method>
         </Link>
       </Card>
       <Card>
-        <Link to={ `${url}sor_method` }>
+        <Link to={ `${url}/sor_method` }>
           <Method>
             SOR法
           </Method>
