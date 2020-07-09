@@ -9,12 +9,13 @@ import {
 import GaussSeidelMethodLinearEquation from './linear_equation/gauss_seidel_method'
 import JacobMethodLinearEquation from './linear_equation/jacobi_method'
 import SorMethodLinearEquation from './linear_equation/sor_method'
+import Layout from '../components/layout'
 
 const LinearEquation = () => {
 
   let { url, path } = useRouteMatch()
   return (
-    <>
+    <Layout>
       <Switch>
         <Route path={ `${path}/jacobi_method` }>
           <JacobMethodLinearEquation />
@@ -29,7 +30,7 @@ const LinearEquation = () => {
           <Root url={ url } />
         </Route>
       </Switch>
-    </>
+    </Layout>
   )
 }
 
