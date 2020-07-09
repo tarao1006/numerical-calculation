@@ -6,22 +6,6 @@ import {
   CHANGE_RIGHT_HAND_SIDE_VECTOR_VALUE
 } from '../actions/jacobiMethodLinearEquationAction';
 
-const defaultSize = 5
-let defaultCoefficientMatrix = []
-let defaultRightHandSideVector = []
-for (let i = 0; i < defaultSize; ++i) {
-  let row = []
-  for (let j = 0; j < defaultSize; ++j) {
-    if (i == j) row.push((Math.floor(Math.random() * 10)) * 10);
-    else if (Math.abs(i - j) <= 1) row.push((Math.floor(Math.random() * 10)) * 2);
-    else row.push(0)
-  }
-  defaultCoefficientMatrix.push(row)
-}
-for (let i = 0; i < defaultSize; ++i) {
-  defaultRightHandSideVector.push(Math.floor(Math.random() * 10) - 5);
-}
-
 export const updateValues = size => {
   let newCoefficientMatrix = []
   let newRightHandSideVector = []
@@ -40,6 +24,9 @@ export const updateValues = size => {
 
   return [ size, newCoefficientMatrix, newRightHandSideVector ]
 }
+
+const defaultSize = 5
+const [defaultCoefficientMatrix, defaultRightHandSideVector] = updateValues(defaultSize)
 
 const initialState = {
   size: 5,
