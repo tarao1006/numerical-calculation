@@ -3,8 +3,7 @@ import ReactDom from 'react-dom'
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import { Provider } from 'react-redux'
 import Home from './home'
