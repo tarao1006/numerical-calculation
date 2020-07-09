@@ -9,7 +9,9 @@
   "scripts": {
     "start": "webpack-dev-server --history-api-fallback"
   },
-  "dependencies": {},
+  "dependencies": {
+    "core-js": "^3.6.5"
+  },
   "devDependencies": {
     "@babel/core": "^7.10.4",
     "@babel/preset-env": "^7.10.4",
