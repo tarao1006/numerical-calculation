@@ -26,10 +26,10 @@ export const updateValues = size => {
 }
 
 const defaultSize = 5
-const [defaultCoefficientMatrix, defaultRightHandSideVector] = updateValues(defaultSize)
+const [size, defaultCoefficientMatrix, defaultRightHandSideVector] = updateValues(defaultSize)
 
 const initialState = {
-  size: 5,
+  size: size,
   coefficientMatrix: defaultCoefficientMatrix,
   rightHandSideVector: defaultRightHandSideVector
 }
