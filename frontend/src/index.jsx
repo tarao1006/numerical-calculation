@@ -8,7 +8,7 @@ import {
 import { Provider } from 'react-redux'
 import Home from './home'
 import LinearEquation from './calculator/linear_equation'
-import { store } from './store'
+import store from './store'
 
 const App = () => {
 
