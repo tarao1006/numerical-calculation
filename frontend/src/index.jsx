@@ -6,8 +6,10 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import { Provider } from 'react-redux'
 import Home from './home'
 import LinearEquation from './calculator/linear_equation'
+import { store } from './store'
 
 const App = () => {
 
@@ -26,5 +28,7 @@ const App = () => {
 }
 
 ReactDom.render(
-  <App />, document.getElementById('app')
+  <Provider store={ store }>
+    <App />
+  </Provider>, document.getElementById('app')
 )
