@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import MatrixCell from './matrixcell'
+import MatrixCell, { BlackCell } from './matrixcell'
 
 const LowerTriangularMatrix = ({ rowCount, columnCount, values, id }) => {
 
@@ -8,7 +8,7 @@ const LowerTriangularMatrix = ({ rowCount, columnCount, values, id }) => {
   for (let i = 0; i < rowCount; ++i) {
     let row = []
     for (let j = 0; j < columnCount; ++j) {
-      if ( i <= j) {
+      if ( i >= j) {
         row.push(
           <td key={ `${id}${(i * rowCount + j).toString()}` }>
             <MatrixCell
@@ -16,6 +16,11 @@ const LowerTriangularMatrix = ({ rowCount, columnCount, values, id }) => {
               y={ j }
               val={ values[i][j] }
             />
+          </td>)
+      } else {
+        row.push(
+          <td key={ `${id}${(i * rowCount + j).toString()}` }>
+            <BlackCell />
           </td>)
       }
     }
