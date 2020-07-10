@@ -20,12 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3eb38af7-3c37-4aa8-8e24-9464324490c1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/calculators/iterative_method/gauss_seidel_method.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/calculators/linear_equation/gauss_seidel_method.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/calculators/iterative_method/iterative_method_base.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/calculators/linear_equation/iterative_method_base.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/calculators/iterative_method/jacobi_method.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/calculators/linear_equation/jacobi_method.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/calculators/iterative_method/sor_method.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/calculators/linear_equation/sor_method.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/api/v1/linearequation_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/api/v1/linearequation_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/calculators/iterative_method/iterative_method_base_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/calculators/linear_equation/iterative_method_base_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/calculators/backward_substitution.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/calculators/other/backward_substitution.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/calculators/base.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/calculators/other/other_base.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/calculators/forward_substitution.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/calculators/other/forward_substitution.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/calculators/lu_decomposition.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/calculators/other/lu_decomposition.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/api/v1/calculator_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/api/v1/calculator_controller.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +54,11 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/calculators/other" />
+    </key>
   </component>
   <component name="RunManager" selected="Rails.Development: numerical-calculation">
     <configuration name="Development: numerical-calculation" type="RailsRunConfigurationType" factoryName="Rails">
@@ -167,7 +172,7 @@
       <updated>1594050583705</updated>
       <workItem from="1594050586550" duration="102000" />
       <workItem from="1594050696761" duration="484000" />
-      <workItem from="1594374172224" duration="693000" />
+      <workItem from="1594374172224" duration="1847000" />
     </task>
     <servers />
   </component>
