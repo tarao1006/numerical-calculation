@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import MatrixContainer from '../../components/matrixcontainer'
-import ParamInput from '../../components/paraminput'
-import Vector from '../../components/matrix/vector'
-import useSorMethodLinearEquation from '../../actions/sorMethodLinearEquationAction'
+import MatrixContainer from '../../matrixcontainer'
+import ParamInput from '../../paraminput'
+import Vector from '../../matrix/vector'
+import useSorMethodLinearEquation from '../../../actions/sorMethodLinearEquationAction'
 
 const SorMethodLinearEquation = () => {
   const title = "SOR法"

@@ -8,9 +8,9 @@ import {
 import GaussSeidelMethodLinearEquation from './linear_equation/gauss_seidel_method'
 import JacobMethodLinearEquation from './linear_equation/jacobi_method'
 import SorMethodLinearEquation from './linear_equation/sor_method'
-import Layout from '../components/layout'
-import Link from '../components/linkcomposition'
-import { siteTitle } from '../components/title'
+import Layout from '../layout'
+import Link from '../linkcomposition'
+import { siteTitle } from '../title'
 
 const LinearEquation = () => {
 
