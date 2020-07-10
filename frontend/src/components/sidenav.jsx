@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import { useRouteMatch } from "react-router-dom";
+import { useRouteMatch, useLocation } from "react-router-dom";
 import Link from './linkcomposition'
 
 const SideNav = () => {
@@ -17,30 +17,20 @@ const SideNav = () => {
 
   return (
     <>
-      <SideNavItem>
-        <Link to="/">
+      <SideNavItem to="/">
           ホーム
-        </Link>
       </SideNavItem>
-      <SideNavItem>
-        <Link to={`${url}`}>
+      <SideNavItem to={`${url}`}>
           連立一次方程式
-        </Link>
       </SideNavItem>
-      <SideNavItem sub>
-        <Link to={`${url}/jacobi_method`}>
+      <SideNavItem sub to={`${url}/jacobi_method`}>
           ヤコビ法
-        </Link>
       </SideNavItem>
-      <SideNavItem sub>
-        <Link to={`${url}/gauss_seidel_method`}>
+      <SideNavItem sub to={`${url}/gauss_seidel_method`}>
           ガウス・ザイデル法
-        </Link>
       </SideNavItem>
-      <SideNavItem sub>
-        <Link to={`${url}/sor_method`}>
+      <SideNavItem sub to={`${url}/sor_method`}>
           SOR法
-        </Link>
       </SideNavItem>
     </>
   )
@@ -66,11 +56,24 @@ const Item = styled.div`
   `}
 `
 
-const SideNavItem = ({ children, sub }) => {
+const SideNavItem = ({ children, to, sub }) => {
+  const currentPath = useLocation().pathname
 
   return (
-    <Item sub={ sub }>
-      { children }
+    <Item sub={ sub } current={ to === currentPath } >
+      <Link to={ to }>
+        <Name>
+          { children }
+        </Name>
+      </Link>
     </Item>
   )
 }
+
+const Name = styled.span`
+  margin: 0 auto;
+  width: 100%;
+  display: block;
+
+  cursor: "pointer";
+`
