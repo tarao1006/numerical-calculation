@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
+export const siteTitle = "数値計算ライブラリ"
+
 const Title = ({ title }) => {
 
   return (
