@@ -8,7 +8,7 @@ import { siteTitle } from './title'
 import { updateValues } from '../lib/linearequation'
 import { Label } from './paraminput'
 
-const MatrixContainer = ({ children, title, execute, result, iter, status, executed, setStatus, setExecuted, useLinearEquation }) => {
+const MatrixContainer = ({ children, title, execute, result, iter, status, loading, executed, setStatus, setExecuted, useLinearEquation }) => {
 
   useEffect(() => {
     document.title = `${title} | ${siteTitle}`
@@ -28,6 +28,12 @@ const MatrixContainer = ({ children, title, execute, result, iter, status, execu
       { status ? "Succeeded" : "Failed" }
     </StatusWrapper>
   )
+
+  const calculating = loading ? (
+    <Wrapper fontSize="2">
+      計算中...
+    </Wrapper>
+  ) : (<></>)
 
   const output = status ? (
     <>
@@ -76,10 +82,11 @@ const MatrixContainer = ({ children, title, execute, result, iter, status, execu
           />
         </VectorWrapper>
 
-        <ButtonWrapper>
+        <Wrapper>
           <ExecuteButton execute={ execute } />
-        </ButtonWrapper>
+        </Wrapper>
 
+        { loading && calculating }
         { executed && message }
         { output }
 
@@ -129,23 +136,16 @@ const GenerateButton = styled.button`
 
 const MatrixWrapper = styled.div`
   max-width: 700px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  padding-bottom: 20px;
   overflow: scroll;
-  border-radius: 12px;
 `
 
 const VectorWrapper = styled.div`
   max-width: 700px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  padding-bottom: 20px;
-  border-radius: 12px;
 `
 
-const ButtonWrapper = styled.div`
+const Wrapper = styled.div`
   margin: 0 auto;
+  font-size: ${props => `${props.fontSize}em`}
 `
 
 const StatusWrapper = styled.div`

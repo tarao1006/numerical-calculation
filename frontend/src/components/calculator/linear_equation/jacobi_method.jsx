@@ -8,12 +8,15 @@ const JacobMethodLinearEquation = () => {
   const title = "ヤコビ法"
   const [ status, setStatus ] = useState(false)
   const [ executed, setExecuted ] = useState(false)
+  const [ loading, setLoading ] = useState(false)
   const [ solutionVector, setSolutionVector ] = useState([])
   const [iter, setIter] = useState(0)
   const { size, coefficientMatrix, rightHandSideVector } = useJacobiMethodLinearEquation()
 
   const execute = async () => {
     setExecuted(false)
+    setStatus(false)
+    setLoading(true)
     try {
       const result = await axios.post(
         'http://localhost:3001/api/v1/linear_equation/jacobi_method', {
@@ -29,6 +32,7 @@ const JacobMethodLinearEquation = () => {
       } catch (error) {
         setStatus(false)
     }
+    setLoading(false)
   }
 
   return (
@@ -37,6 +41,7 @@ const JacobMethodLinearEquation = () => {
       execute={ execute }
       status={ status }
       executed={ executed }
+      loading={ loading }
       result={
         executed &&
           <Vector
