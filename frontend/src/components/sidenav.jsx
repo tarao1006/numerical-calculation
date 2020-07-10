@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import { useRouteMatch, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import Link from './linkcomposition'
 
 const SideNav = () => {
@@ -10,17 +10,29 @@ const SideNav = () => {
       <SideNavItem to="/">
           ホーム
       </SideNavItem>
-      <SideNavItem to={`/linear_equation`}>
+      <SideNavItem to="/linear_equation">
           連立一次方程式
       </SideNavItem>
-      <SideNavItem sub to={`/linear_equation/jacobi_method`}>
+      <SideNavItem sub to="/linear_equation/jacobi_method">
           ヤコビ法
       </SideNavItem>
-      <SideNavItem sub to={`/linear_equation/gauss_seidel_method`}>
+      <SideNavItem sub to="/linear_equation/gauss_seidel_method">
           ガウス・ザイデル法
       </SideNavItem>
-      <SideNavItem sub to={`/linear_equation/sor_method`}>
+      <SideNavItem sub to="/linear_equation/sor_method">
           SOR法
+      </SideNavItem>
+      <SideNavItem to="/other">
+        その他
+      </SideNavItem>
+      <SideNavItem sub to="/other/forward_substitution" >
+        前進代入
+      </SideNavItem>
+      <SideNavItem sub to="/other/backward_substitution" >
+        後退代入
+      </SideNavItem>
+      <SideNavItem sub to="/other/lu_decomposition" >
+        LU分解
       </SideNavItem>
     </>
   )
