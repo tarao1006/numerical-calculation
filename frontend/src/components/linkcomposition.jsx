@@ -15,4 +15,8 @@ export default Link
 
 const FancyLink = styled.a`
   text-decoration: none;
+
+  &:visited {
+    color: black;
+  }
 `
