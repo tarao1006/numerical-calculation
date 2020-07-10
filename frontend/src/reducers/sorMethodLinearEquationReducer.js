@@ -39,18 +39,20 @@ const sorMethodLinearEquation = (state = initialState, action) => {
     case INCREMENT:
       [newSize, newCoefficientMatrix, newRightHandSideVector] = changeSize(state.size + 1, state.coefficientMatrix, state.rightHandSideVector)
       return {
-          ...state,
-          size: newSize,
-          coefficientMatrix: newCoefficientMatrix,
-          rightHandSideVector: newRightHandSideVector
+        ...state,
+        size: newSize,
+        coefficientMatrix: newCoefficientMatrix,
+        rightHandSideVector: newRightHandSideVector,
+        id: uuidv4()
       }
     case DECREMENT:
       [newSize, newCoefficientMatrix, newRightHandSideVector] = changeSize(state.size - 1, state.coefficientMatrix, state.rightHandSideVector)
       return {
-          ...state,
-          size: newSize,
-          coefficientMatrix: newCoefficientMatrix,
-          rightHandSideVector: newRightHandSideVector
+        ...state,
+        size: newSize,
+        coefficientMatrix: newCoefficientMatrix,
+        rightHandSideVector: newRightHandSideVector,
+        id: uuidv4()
       }
     case CHANGE_COEFFICIENT_MATRIX_VALUE:
       return {

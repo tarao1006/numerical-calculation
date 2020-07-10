@@ -11,7 +11,7 @@ import { updateValues, changeMatrixValue, changeVectorValue, changeSize } from '
 const defaultSize = 5
 const [size, defaultCoefficientMatrix, defaultRightHandSideVector] = updateValues(defaultSize)
 
-const initialState = {
+export const initialState = {
   size: size,
   coefficientMatrix: defaultCoefficientMatrix,
   rightHandSideVector: defaultRightHandSideVector,
@@ -36,18 +36,20 @@ const gaussSeidelMethodLinearEquation = (state = initialState, action) => {
     case INCREMENT:
       [newSize, newCoefficientMatrix, newRightHandSideVector] = changeSize(state.size + 1, state.coefficientMatrix, state.rightHandSideVector)
       return {
-          ...state,
-          size: newSize,
-          coefficientMatrix: newCoefficientMatrix,
-          rightHandSideVector: newRightHandSideVector
+        ...state,
+        size: newSize,
+        coefficientMatrix: newCoefficientMatrix,
+        rightHandSideVector: newRightHandSideVector,
+        id: uuidv4()
       }
     case DECREMENT:
       [newSize, newCoefficientMatrix, newRightHandSideVector] = changeSize(state.size - 1, state.coefficientMatrix, state.rightHandSideVector)
       return {
-          ...state,
-          size: newSize,
-          coefficientMatrix: newCoefficientMatrix,
-          rightHandSideVector: newRightHandSideVector
+        ...state,
+        size: newSize,
+        coefficientMatrix: newCoefficientMatrix,
+        rightHandSideVector: newRightHandSideVector,
+        id: uuidv4()
       }
     case CHANGE_COEFFICIENT_MATRIX_VALUE:
       return {
