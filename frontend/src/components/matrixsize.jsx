@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import useJacobiMethodLinearEquation from '../actions/jacobiMethodLinearEquationAction'
+import { Container, Label } from './paraminput'
 
 const MatrixSize = ({ setStatus, setExecuted }) => {
 
@@ -29,16 +30,6 @@ const MatrixSize = ({ setStatus, setExecuted }) => {
 }
 
 export default MatrixSize
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-`
-
-const Label = styled.label`
-  font-size: 20px;
-`
 
 const Size = styled.span`
   font-size: 20px;
