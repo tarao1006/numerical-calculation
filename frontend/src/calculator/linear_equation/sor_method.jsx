@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import MatrixContainer from '../../components/matrixcontainer'
+import ParamInput from '../../components/paraminput'
 import Vector from '../../components/matrix/vector'
 import useJacobiMethodLinearEquation from '../../actions/jacobiMethodLinearEquationAction'
 
@@ -45,7 +46,9 @@ const SorMethodLinearEquation = () => {
       }
       setStatus={ setStatus }
       setExecuted={ setExecuted }
-    / >
+    >
+      <ParamInput label="緩和パラメータ" />
+    </MatrixContainer>
   )
 }
 
