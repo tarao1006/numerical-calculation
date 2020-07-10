@@ -15,12 +15,8 @@ const App = () => {
   return (
     <Router>
       <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/linear_equation" >
-         <LinearEquation />
-        </Route>
+        <Route exact path="/" component={ Home } />
+        <Route path="/linear_equation" component={ LinearEquation } />
       </Switch>
     </Router>
   );
