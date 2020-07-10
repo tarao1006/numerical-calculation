@@ -12,7 +12,7 @@ export const updateValues = size => {
   for (let i = 0; i < size; ++i) {
     let row = []
     for (let j = 0; j < size; ++j) {
-      if (i == j) row.push((Math.floor(Math.random() * 10) + 10) * 2);
+      if (i == j) row.push((Math.floor(Math.random() * 10) + 10) * 10);
       else if (Math.abs(i - j) <= 1) row.push((Math.floor(Math.random() * 10)) * 2);
       else row.push(0)
     }
