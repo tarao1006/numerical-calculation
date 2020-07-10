@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled, { css } from 'styled-components'
 import {
   Switch,
@@ -10,6 +10,7 @@ import JacobMethodLinearEquation from './linear_equation/jacobi_method'
 import SorMethodLinearEquation from './linear_equation/sor_method'
 import Layout from '../components/layout'
 import Link from '../components/linkcomposition'
+import { siteTitle } from '../components/title'
 
 const LinearEquation = () => {
 
@@ -17,17 +18,15 @@ const LinearEquation = () => {
   return (
     <Layout>
       <Switch>
-        <Route path={ `${path}/jacobi_method` }>
-          <JacobMethodLinearEquation />
+      <Route exact path={ path }>
+          <Root url={ url } />
         </Route>
+        <Route path={ `${path}/jacobi_method` } component={ JacobMethodLinearEquation } />
         <Route path={ `${path}/gauss_seidel_method` }>
           <GaussSeidelMethodLinearEquation />
         </Route>
         <Route path={ `${path}/sor_method` }>
           <SorMethodLinearEquation />
-        </Route>
-        <Route exact path={ path }>
-          <Root url={ url } />
         </Route>
       </Switch>
     </Layout>
@@ -38,7 +37,11 @@ const Root = ({ url }) => {
   if (url.endsWith('/')) {
     url = url.substring(0, url.length - 1)
   }
-  console.log(url)
+
+  useEffect(() => {
+    document.title = `連立一次方程式 | ${siteTitle}`
+  })
+
   return (
     <Main>
       <Card>

@@ -1,14 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import Matrix from './matrix/matrix'
 import Vector from './matrix/vector'
 import MatrixSize from './matrixsize'
 import ExecuteButton from './executebutton'
-import Title from './title'
+import Title, { siteTitle } from './title'
 import useJacobiMethodLinearEquation from '../actions/jacobiMethodLinearEquationAction'
 import { updateValues } from '../reducers/jacobiMethodLinearEquationReducer'
 
 const MatrixContainer = ({ title, execute, result, status, executed, setStatus, setExecuted }) => {
+
+  useEffect(() => {
+    document.title = `${title} | ${siteTitle}`
+  })
 
   const { size, coefficientMatrix, rightHandSideVector, update } = useJacobiMethodLinearEquation()
 
