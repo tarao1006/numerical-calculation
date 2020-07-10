@@ -1,12 +1,12 @@
 import { v4 as uuidv4 } from 'uuid'
+import {  CHANGE_RELAXATION_PARAMETER_VALUE } from '../actions/sorMethodLinearEquationAction';
 import {
   UPDATE,
   INCREMENT,
   DECREMENT,
   CHANGE_COEFFICIENT_MATRIX_VALUE,
-  CHANGE_RIGHT_HAND_SIDE_VECTOR_VALUE,
-  CHANGE_RELAXATION_PARAMETER_VALUE
-} from '../actions/sorMethodLinearEquationAction';
+  CHANGE_RIGHT_HAND_SIDE_VECTOR_VALUE
+} from '../actions/matrix';
 import { updateValues, changeMatrixValue, changeVectorValue, changeSize } from '../lib/linearequation'
 
 const defaultSize = 5

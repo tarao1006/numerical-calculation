@@ -5,7 +5,7 @@ import {
   DECREMENT,
   CHANGE_COEFFICIENT_MATRIX_VALUE,
   CHANGE_RIGHT_HAND_SIDE_VECTOR_VALUE
-} from '../actions/jacobiMethodLinearEquationAction';
+} from '../actions/matrix';
 import { updateValues, changeMatrixValue, changeVectorValue, changeSize } from '../lib/linearequation'
 
 const defaultSize = 5
