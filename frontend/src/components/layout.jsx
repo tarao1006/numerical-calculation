@@ -26,7 +26,7 @@ const MainGrid = styled.div`
 
 const Container = styled.div`
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 3em auto 0;
   display: grid;
   grid-template-columns: 220px 1fr;
   justify-content: center;
@@ -34,7 +34,6 @@ const Container = styled.div`
 
 const SideGrid = styled.div`
   grid-column: 1;
-  top: 20px;
   position: sticky;
-  align-self: baseline;
+  align-self: start;
 `
