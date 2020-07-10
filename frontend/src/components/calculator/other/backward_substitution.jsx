@@ -26,7 +26,6 @@ const BackwardSubstitution = () => {
 
         setStatus(result.data.status === 'SUCCESS')
         setSolutionVector(result.data.ans)
-        setIter(result.data.count)
         setExecuted(true)
         console.log(result)
       } catch (error) {
