@@ -17,14 +17,20 @@ export const updateValues = size => {
   return [ size, newCoefficientMatrix, newRightHandSideVector ]
 }
 
+export const validateSize = size => {
+  let res = Number.parseInt(size)
+  if (res >= 10) {
+    res = 10
+  } else if (res <= 2) {
+    res = 2
+  }
+
+  return res
+}
+
 export const changeSize = (size, coefficientMatrix, rightHandSideVector) => {
   const oldSize = coefficientMatrix.length
-  let newSize = Number.parseInt(size)
-  if (newSize >= 10) {
-    newSize = 10
-  } else if (newSize <= 2) {
-    newSize = 2
-  }
+  let newSize = validateSize(size)
 
   let newCoefficientMatrix = []
   let newRightHandSideVector = []
