@@ -9,12 +9,15 @@ const SorMethodLinearEquation = () => {
   const title = "SOR法"
   const [ status, setStatus ] = useState(false)
   const [ executed, setExecuted ] = useState(false)
+  const [ loading, setLoading ] = useState(false)
   const [ solutionVector, setSolutionVector ] = useState([])
   const [iter, setIter] = useState(0)
   const { size, coefficientMatrix, rightHandSideVector, relaxationParameter, changeRelaxationParameterValue } = useSorMethodLinearEquation()
 
   const execute = async () => {
     setExecuted(false)
+    setStatus(false)
+    setLoading(true)
     try {
       const result = await axios.post(
         'http://localhost:3001/api/v1/linear_equation/sor_method', {
@@ -31,6 +34,7 @@ const SorMethodLinearEquation = () => {
       } catch (error) {
         setStatus(false)
     }
+    setLoading(false)
   }
 
   return (
@@ -47,6 +51,7 @@ const SorMethodLinearEquation = () => {
             readOnly={ true }
           />
       }
+      loading={ loading }
       iter={
         executed &&
         iter
