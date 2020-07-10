@@ -3,14 +3,14 @@ import axios from 'axios'
 import MatrixContainer from '../../components/matrixcontainer'
 import ParamInput from '../../components/paraminput'
 import Vector from '../../components/matrix/vector'
-import useJacobiMethodLinearEquation from '../../actions/jacobiMethodLinearEquationAction'
+import useSorMethodLinearEquation from '../../actions/sorMethodLinearEquationAction'
 
 const SorMethodLinearEquation = () => {
   const title = "SOR法"
   const [ status, setStatus ] = useState(false)
   const [ executed, setExecuted ] = useState(false)
   const [ solutionVector, setSolutionVector ] = useState([])
-  const { size, coefficientMatrix, rightHandSideVector } = useJacobiMethodLinearEquation()
+  const { size, coefficientMatrix, rightHandSideVector, relaxationParameter, changeRelaxationParameterValue } = useSorMethodLinearEquation()
 
   const execute = async () => {
     setExecuted(false)
@@ -47,7 +47,11 @@ const SorMethodLinearEquation = () => {
       setStatus={ setStatus }
       setExecuted={ setExecuted }
     >
-      <ParamInput label="緩和パラメータ" />
+      <ParamInput
+        label="緩和パラメータ"
+        defaultValue={ relaxationParameter }
+        handleValue={ changeRelaxationParameterValue }
+      />
     </MatrixContainer>
   )
 }
