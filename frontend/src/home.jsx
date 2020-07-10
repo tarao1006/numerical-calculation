@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import Link from './components/linkcomposition'
-import Title from './components/title'
+import Title, { siteTitle } from './components/title'
 
 const Home = () => {
+
+  useEffect(() => {
+    document.title = `ホーム | ${siteTitle}`
+  })
 
   return (
     <Wrapper>
