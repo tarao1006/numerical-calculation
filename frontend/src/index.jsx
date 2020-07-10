@@ -8,6 +8,7 @@ import {
 import { Provider } from 'react-redux'
 import Home from './home'
 import LinearEquation from './components/calculator/linear_equation'
+import Other from './components/calculator/other'
 import store from './store'
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
       <Switch>
         <Route exact path="/" component={ Home } />
         <Route path="/linear_equation" component={ LinearEquation } />
+        <Route path="/other" component={ Other } />
       </Switch>
     </Router>
   );
