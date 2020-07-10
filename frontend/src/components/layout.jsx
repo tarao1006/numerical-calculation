@@ -35,5 +35,6 @@ const Container = styled.div`
 const SideGrid = styled.div`
   grid-column: 1;
   position: sticky;
+  top: 0;
   align-self: start;
 `
