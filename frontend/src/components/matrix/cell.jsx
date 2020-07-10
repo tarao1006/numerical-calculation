@@ -1,8 +1,8 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { useState } from 'react'
 
-const Cell = ({ x, y, val, onValueChange, readOnly }) => {
+const Cell = ({ x, y, val, onValueChange, readOnly, black }) => {
 
   const [value, setValue] = useState(val)
 
@@ -15,7 +15,7 @@ const Cell = ({ x, y, val, onValueChange, readOnly }) => {
 
   return (
     readOnly?
-    <FixedInput>{ val }</FixedInput> :
+    <FixedInput black={ black }>{ val }</FixedInput> :
     <Input type='number' value={ value } onChange={ handleChange } />
   )
 }
@@ -49,4 +49,8 @@ const FixedInput = styled.div`
   padding: 1px 2px;
   font-size: 400 13.333px Arial;
   overflow: scroll;
+
+  ${props => props.black && css`
+    background: black;
+  `}
 `
