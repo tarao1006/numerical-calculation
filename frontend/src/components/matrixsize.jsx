@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import useJacobiMethodLinearEquation from '../actions/jacobiMethodLinearEquationAction'
 import { Container, Label } from './paraminput'
 
@@ -8,23 +8,27 @@ const MatrixSize = ({ setStatus, setExecuted }) => {
   const { size, increment, decrement } = useJacobiMethodLinearEquation()
 
   const handlePlusClick = () => {
-    increment()
-    setStatus(false)
-    setExecuted(false)
+    if (size < 10) {
+      increment()
+      setStatus(false)
+      setExecuted(false)
+    }
   }
 
   const handleMinusClick = () => {
-    decrement()
-    setStatus(false)
-    setExecuted(false)
+    if (size > 2) {
+      decrement()
+      setStatus(false)
+      setExecuted(false)
+    }
   }
 
   return (
     <Container>
       <Label>サイズ</Label>
       <Size>{ size }</Size>
-      <PlusButton onClick={ handlePlusClick } />
-      <MinusButton onClick={ handleMinusClick } />
+      <PlusButton onClick={ handlePlusClick } disabled={ size >= 10 } />
+      <MinusButton onClick={ handleMinusClick } disabled={ size <= 2} />
     </Container>
   )
 }
@@ -32,6 +36,8 @@ const MatrixSize = ({ setStatus, setExecuted }) => {
 export default MatrixSize
 
 const Size = styled.span`
+  min-width: 1.5em;
+  text-align: right;
   font-size: 20px;
   padding: 0 10px;
 `
@@ -47,6 +53,11 @@ const Button = styled.span`
   appearance: none;
   margin: 0 0.2em;
   vertical-align: middle;
+
+  ${props => props.disabled && css`
+    cursor: default;
+    opacity: 0.4;
+  `}
 `
 
 const MinusButton = styled(Button)`
