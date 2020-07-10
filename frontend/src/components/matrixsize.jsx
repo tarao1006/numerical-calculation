@@ -47,7 +47,7 @@ const Button = styled.span`
   display: inline-block;
   width: 1.6em;
   height: 1.6em;
-  border-radius: 50%;
+  border-radius: 20%;
   cursor: pointer;
   outline: none;
   appearance: none;
@@ -61,7 +61,7 @@ const Button = styled.span`
 `
 
 const MinusButton = styled(Button)`
-  background: blue;
+  background: #4169E1;
 
   &::before {
     position: absolute;
@@ -76,7 +76,7 @@ const MinusButton = styled(Button)`
 `
 
 const PlusButton = styled(MinusButton)`
-  background: red;
+  background: #B22222;
 
   &::after {
     position: absolute;
