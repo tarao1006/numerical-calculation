@@ -1,11 +1,6 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import {
-  Switch,
-  Route,
-  NavLink,
-  useRouteMatch
-} from "react-router-dom";
+import { useRouteMatch } from "react-router-dom";
 import Link from './linkcomposition'
 
 const SideNav = () => {
@@ -47,22 +42,6 @@ const SideNav = () => {
           SOR法
         </Link>
       </SideNavItem>
-
-
-      <Switch>
-        <Route path={ `${path}/jacobi_method` }>
-          {/* <JacobMethodLinearEquation /> */}
-        </Route>
-        <Route path={ `${path}/gauss_seidel_method` }>
-          {/* <GaussSeidelMethodLinearEquation /> */}
-        </Route>
-        <Route path={ `${path}/sor_method` }>
-          {/* <SorMethodLinearEquation /> */}
-        </Route>
-        <Route exact path={ path }>
-          {/* <Root url={ url } /> */}
-        </Route>
-      </Switch>
     </>
   )
 }
