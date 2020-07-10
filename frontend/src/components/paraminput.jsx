@@ -1,15 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 
-const ParamInput = ({ label }) => {
+const ParamInput = ({ label, defaultValue, handleValue }) => {
+
+  if (!defaultValue) {
+    defaultValue = 0
+  }
+  const [value, setValue] = useState(defaultValue)
+
+  const handleChange = e => {
+
+    const val = e.target.value
+    setValue(val)
+    handleValue(val)
+  }
 
   return (
     <Container>
       <Label>
         { label }
       </Label>
-      <Input>
-      </Input>
+      <Input
+        value={ value }
+        onChange={ handleChange }
+        type="number"
+      />
     </Container>
   )
 }
