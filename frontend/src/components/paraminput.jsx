@@ -15,6 +15,13 @@ const ParamInput = ({ label, defaultValue, handleValue }) => {
     handleValue(val)
   }
 
+  const handleBlur = () => {
+    if (value === "") {
+      handleValue(1.5)
+      setValue(1.5)
+    }
+  }
+
   return (
     <Container>
       <Label>
@@ -24,6 +31,7 @@ const ParamInput = ({ label, defaultValue, handleValue }) => {
         value={ value }
         onChange={ handleChange }
         type="number"
+        onBlur={ handleBlur }
       />
     </Container>
   )
