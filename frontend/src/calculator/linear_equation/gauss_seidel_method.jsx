@@ -9,6 +9,7 @@ const GaussSeidelMethodLinearEquation = () => {
   const [ status, setStatus ] = useState(false)
   const [ executed, setExecuted ] = useState(false)
   const [ solutionVector, setSolutionVector ] = useState([])
+  const [ iter, setIter ] = useState(0)
   const { size, coefficientMatrix, rightHandSideVector } = useGaussSeidelMethodLinearEquation()
 
   const execute = async () => {
@@ -23,6 +24,7 @@ const GaussSeidelMethodLinearEquation = () => {
 
         setStatus(result.data.status === 'SUCCESS')
         setSolutionVector(result.data.ans)
+        setIter(result.data.count)
         setExecuted(true)
       } catch (error) {
         setStatus(false)
@@ -42,6 +44,10 @@ const GaussSeidelMethodLinearEquation = () => {
             values={ solutionVector }
             readOnly={ true }
           />
+      }
+      iter={
+        executed &&
+        iter
       }
       setStatus={ setStatus }
       setExecuted={ setExecuted }

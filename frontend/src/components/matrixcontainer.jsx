@@ -8,7 +8,7 @@ import { siteTitle } from './title'
 import { updateValues } from '../lib/linearequation'
 import { Label } from './paraminput'
 
-const MatrixContainer = ({ children, title, execute, result, status, executed, setStatus, setExecuted, useLinearEquation }) => {
+const MatrixContainer = ({ children, title, execute, result, iter, status, executed, setStatus, setExecuted, useLinearEquation }) => {
 
   useEffect(() => {
     document.title = `${title} | ${siteTitle}`
@@ -30,10 +30,16 @@ const MatrixContainer = ({ children, title, execute, result, status, executed, s
   )
 
   const output = status ? (
-    <VectorWrapper>
+    <>
+      <Label>イテレーション回数</Label>
+        <IterWrapper>
+          { iter }
+        </IterWrapper>
+      <VectorWrapper>
       <Label>解ベクトル</Label>
-      { result }
-    </VectorWrapper>
+        { result }
+      </VectorWrapper>
+    </>
   ) : (<></>)
 
   return (
@@ -148,4 +154,9 @@ const StatusWrapper = styled.div`
   border-radius: 10px;
   color: white;
   background: ${props => props.status ? "#5cb85c" : "#d9534f"};
+`
+
+const IterWrapper = styled.div`
+  margin: 0 auto;
+  font-size: 1.5em;
 `
