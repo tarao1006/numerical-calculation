@@ -3,13 +3,13 @@ import styled, { css } from 'styled-components'
 import {
   Switch,
   Route,
-  Link,
   useRouteMatch
 } from "react-router-dom";
 import GaussSeidelMethodLinearEquation from './linear_equation/gauss_seidel_method'
 import JacobMethodLinearEquation from './linear_equation/jacobi_method'
 import SorMethodLinearEquation from './linear_equation/sor_method'
 import Layout from '../components/layout'
+import Link from '../components/linkcomposition'
 
 const LinearEquation = () => {
 
@@ -42,21 +42,21 @@ const Root = ({ url }) => {
   return (
     <Main>
       <Card>
-        <Link to={ `${url}/jacobi_method` } style={{"text-decoration": "none"}}>
+        <Link to={ `${url}/jacobi_method` }>
           <Method>
             ヤコビ法
           </Method>
         </Link>
       </Card>
       <Card>
-        <Link to={ `${url}/gauss_seidel_method` } style={{"text-decoration": "none"}}>
+        <Link to={ `${url}/gauss_seidel_method` }>
           <Method>
             ガウス・ザイデル法
           </Method>
         </Link>
       </Card>
       <Card>
-        <Link to={ `${url}/sor_method` } style={{"text-decoration": "none"}}>
+        <Link to={ `${url}/sor_method` }>
           <Method>
             SOR法
           </Method>

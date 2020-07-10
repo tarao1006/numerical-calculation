@@ -6,6 +6,7 @@ import {
   NavLink,
   useRouteMatch
 } from "react-router-dom";
+import Link from './linkcomposition'
 
 const SideNav = () => {
 
@@ -27,24 +28,24 @@ const SideNav = () => {
         </NavLink>
       </SideNavItem>
       <SideNavItem>
-        <NavLink to={`${url}`} style={{textDecoration: "none"}}>
+        <Link to={`${url}`}>
           連立一次方程式
-        </NavLink>
+        </Link>
       </SideNavItem>
       <SideNavItem sub>
-        <NavLink to={`${url}/jacobi_method`} style={{textDecoration: "none"}}>
+        <Link to={`${url}/jacobi_method`}>
           ヤコビ法
-        </NavLink>
+        </Link>
       </SideNavItem>
       <SideNavItem sub>
-        <NavLink to={`${url}/gauss_seidel_method`} style={{textDecoration: "none"}}>
+        <Link to={`${url}/gauss_seidel_method`}>
           ガウス・ザイデル法
-        </NavLink>
+        </Link>
       </SideNavItem>
       <SideNavItem sub>
-        <NavLink to={`${url}/sor_method`} style={{textDecoration: "none"}}>
+        <Link to={`${url}/sor_method`}>
           SOR法
-        </NavLink>
+        </Link>
       </SideNavItem>
 
 
