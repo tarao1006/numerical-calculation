@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from 'uuid'
 import {
   UPDATE,
   INCREMENT,
@@ -17,6 +18,7 @@ const initialState = {
   coefficientMatrix: defaultCoefficientMatrix,
   rightHandSideVector: defaultRightHandSideVector,
   relaxationParameter: defaultRelaxationParameter,
+  id: uuidv4()
 }
 
 const sorMethodLinearEquation = (state = initialState, action) => {
@@ -31,7 +33,8 @@ const sorMethodLinearEquation = (state = initialState, action) => {
         ...state,
         size: action.size,
         coefficientMatrix: action.mat,
-        rightHandSideVector: action.vec
+        rightHandSideVector: action.vec,
+        id: uuidv4()
       }
     case INCREMENT:
       [newSize, newCoefficientMatrix, newRightHandSideVector] = changeSize(state.size + 1, state.coefficientMatrix, state.rightHandSideVector)

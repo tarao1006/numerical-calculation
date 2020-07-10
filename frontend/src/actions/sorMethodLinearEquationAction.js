@@ -12,6 +12,7 @@ const useSorMethodLinearEquation = () => {
   const coefficientMatrix = useSelector(state => state.sorMethodLinearEquation.coefficientMatrix)
   const rightHandSideVector = useSelector(state => state.sorMethodLinearEquation.rightHandSideVector)
   const relaxationParameter = useSelector(state => state.sorMethodLinearEquation.relaxationParameter)
+  const id = useSelector(state => state.sorMethodLinearEquation.id)
   const dispatch = useDispatch()
 
   const update = (size, mat, vec) => {
@@ -65,6 +66,7 @@ const useSorMethodLinearEquation = () => {
     coefficientMatrix,
     rightHandSideVector,
     relaxationParameter,
+    id,
     update,
     increment,
     decrement,
