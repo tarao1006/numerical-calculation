@@ -46,6 +46,7 @@ const SorMethodLinearEquation = () => {
       }
       setStatus={ setStatus }
       setExecuted={ setExecuted }
+      useLinearEquation={ useSorMethodLinearEquation }
     >
       <ParamInput
         label="緩和パラメータ"

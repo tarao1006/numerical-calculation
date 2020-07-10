@@ -45,6 +45,7 @@ const JacobMethodLinearEquation = () => {
       }
       setStatus={ setStatus }
       setExecuted={ setExecuted }
+      useLinearEquation={ useJacobiMethodLinearEquation }
     / >
   )
 }

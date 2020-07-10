@@ -6,25 +6,7 @@ import {
   CHANGE_RIGHT_HAND_SIDE_VECTOR_VALUE,
   CHANGE_RELAXATION_PARAMETER_VALUE
 } from '../actions/sorMethodLinearEquationAction';
-
-export const updateValues = size => {
-  let newCoefficientMatrix = []
-  let newRightHandSideVector = []
-  for (let i = 0; i < size; ++i) {
-    let row = []
-    for (let j = 0; j < size; ++j) {
-      if (i == j) row.push((Math.floor(Math.random() * 10) + 10) * 10);
-      else if (Math.abs(i - j) <= 1) row.push((Math.floor(Math.random() * 10)) * 2);
-      else row.push(0)
-    }
-    newCoefficientMatrix.push(row)
-  }
-  for (let i = 0; i < size; ++i) {
-    newRightHandSideVector.push(Math.floor(Math.random() * 10) - 5);
-  }
-
-  return [ size, newCoefficientMatrix, newRightHandSideVector ]
-}
+import { updateValues, changeMatrixValue, changeVectorValue, changeSize } from '../lib/linearequation'
 
 const defaultSize = 5
 const [size, defaultCoefficientMatrix, defaultRightHandSideVector] = updateValues(defaultSize)
@@ -88,60 +70,3 @@ const sorMethodLinearEquation = (state = initialState, action) => {
 }
 
 export default sorMethodLinearEquation
-
-const changeSize = (size, coefficientMatrix, rightHandSideVector) => {
-  const oldSize = coefficientMatrix.length
-  let newSize = Number.parseInt(size)
-  if (newSize >= 10) {
-    newSize = 10
-  } else if (newSize <= 2) {
-    newSize = 2
-  }
-
-  let newCoefficientMatrix = []
-  let newRightHandSideVector = []
-  if (oldSize < newSize) {
-    for (let i = 0; i < newSize; ++i) {
-      let newRow = []
-      for (let j = 0; j < newSize; ++j) {
-        if (i >= oldSize || j >= oldSize) {
-          newRow.push(0)
-        } else{
-          newRow.push(coefficientMatrix[i][j])
-        }
-      }
-      newCoefficientMatrix.push(newRow)
-    }
-    for (let i = 0; i < newSize; ++i) {
-      if (i >= oldSize) {
-        newRightHandSideVector.push(0)
-      } else{
-        newRightHandSideVector.push(rightHandSideVector[i])
-      }
-    }
-  } else {
-    for (let i = 0; i < newSize; ++i) {
-      let newRow = []
-      for (let j = 0; j < newSize; ++j) {
-        newRow.push(coefficientMatrix[i][j])
-      }
-      newCoefficientMatrix.push(newRow)
-    }
-    for (let i = 0; i < newSize; ++i) {
-      newRightHandSideVector.push(rightHandSideVector[i])
-    }
-  }
-  return [newSize, newCoefficientMatrix, newRightHandSideVector]
-}
-
-const changeMatrixValue = (x, y, values, val) => {
-  let res = [].concat(values)
-  res[x][y] = val
-  return res
-}
-
-const changeVectorValue = (i, j, values, val) => {
-  let res = [].concat(values)
-  res[i] = val
-  return res
-}

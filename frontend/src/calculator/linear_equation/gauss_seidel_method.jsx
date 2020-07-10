@@ -45,6 +45,7 @@ const GaussSeidelMethodLinearEquation = () => {
       }
       setStatus={ setStatus }
       setExecuted={ setExecuted }
+      useLinearEquation={ useJacobiMethodLinearEquation }
     / >
   )
 }

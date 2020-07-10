@@ -5,17 +5,16 @@ import Vector from './matrix/vector'
 import MatrixSize from './matrixsize'
 import ExecuteButton from './executebutton'
 import { siteTitle } from './title'
-import useJacobiMethodLinearEquation from '../actions/jacobiMethodLinearEquationAction'
-import { updateValues } from '../reducers/jacobiMethodLinearEquationReducer'
+import { updateValues } from '../lib/linearequation'
 import { Label } from './paraminput'
 
-const MatrixContainer = ({ children, title, execute, result, status, executed, setStatus, setExecuted }) => {
+const MatrixContainer = ({ children, title, execute, result, status, executed, setStatus, setExecuted, useLinearEquation }) => {
 
   useEffect(() => {
     document.title = `${title} | ${siteTitle}`
   })
 
-  const { size, coefficientMatrix, rightHandSideVector, update } = useJacobiMethodLinearEquation()
+  const { size, coefficientMatrix, rightHandSideVector, update } = useLinearEquation()
 
   const handleUpdateClick = () => {
     const [s, mat, vec] = updateValues(size)
