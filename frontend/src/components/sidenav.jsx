@@ -23,9 +23,9 @@ const SideNav = () => {
   return (
     <>
       <SideNavItem>
-        <NavLink to="/">
+        <Link to="/">
           ホーム
-        </NavLink>
+        </Link>
       </SideNavItem>
       <SideNavItem>
         <Link to={`${url}`}>
