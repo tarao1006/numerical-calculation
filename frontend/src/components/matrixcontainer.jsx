@@ -8,7 +8,7 @@ import { siteTitle } from './title'
 import useJacobiMethodLinearEquation from '../actions/jacobiMethodLinearEquationAction'
 import { updateValues } from '../reducers/jacobiMethodLinearEquationReducer'
 
-const MatrixContainer = ({ title, execute, result, status, executed, setStatus, setExecuted }) => {
+const MatrixContainer = ({ children, title, execute, result, status, executed, setStatus, setExecuted }) => {
 
   useEffect(() => {
     document.title = `${title} | ${siteTitle}`
@@ -48,6 +48,8 @@ const MatrixContainer = ({ title, execute, result, status, executed, setStatus, 
           生成
         </GenerateButton>
       </HeadContainer>
+
+      { children }
 
       <Container>
         <MatrixWrapper>
@@ -117,7 +119,7 @@ const GenerateButton = styled.button`
   }
 `
 
-const Label = styled.label`
+export const Label = styled.label`
   font-size: 20px;
 `
 
