@@ -2,14 +2,14 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import MatrixContainer from '../../components/matrixcontainer'
 import Vector from '../../components/matrix/vector'
-import useJacobiMethodLinearEquation from '../../actions/jacobiMethodLinearEquationAction'
+import useGaussSeidelMethodLinearEquation from '../../actions/gaussSeidelMethodLinearEquationAction'
 
 const GaussSeidelMethodLinearEquation = () => {
   const title = "ガウス・ザイデル法"
   const [ status, setStatus ] = useState(false)
   const [ executed, setExecuted ] = useState(false)
   const [ solutionVector, setSolutionVector ] = useState([])
-  const { size, coefficientMatrix, rightHandSideVector } = useJacobiMethodLinearEquation()
+  const { size, coefficientMatrix, rightHandSideVector } = useGaussSeidelMethodLinearEquation()
 
   const execute = async () => {
     setExecuted(false)
@@ -45,7 +45,7 @@ const GaussSeidelMethodLinearEquation = () => {
       }
       setStatus={ setStatus }
       setExecuted={ setExecuted }
-      useLinearEquation={ useJacobiMethodLinearEquation }
+      useLinearEquation={ useGaussSeidelMethodLinearEquation }
     / >
   )
 }
