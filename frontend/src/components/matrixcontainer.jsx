@@ -7,6 +7,7 @@ import ExecuteButton from './executebutton'
 import { siteTitle } from './title'
 import useJacobiMethodLinearEquation from '../actions/jacobiMethodLinearEquationAction'
 import { updateValues } from '../reducers/jacobiMethodLinearEquationReducer'
+import { Label } from './paraminput'
 
 const MatrixContainer = ({ children, title, execute, result, status, executed, setStatus, setExecuted }) => {
 
@@ -117,10 +118,6 @@ const GenerateButton = styled.button`
    &:hover {
     background: lightgray;
   }
-`
-
-export const Label = styled.label`
-  font-size: 20px;
 `
 
 const MatrixWrapper = styled.div`
