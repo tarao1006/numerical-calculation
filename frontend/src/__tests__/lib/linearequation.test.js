@@ -4,7 +4,7 @@ import {
   changeSize,
   changeMatrixValue,
   changeVectorValue
-} from '../lib/linearequation'
+} from '../../lib/linearequation'
 
 const checkTwoDimMatrixSize = mat => {
   let res = true
