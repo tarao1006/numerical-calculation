@@ -4,7 +4,6 @@ import Matrix from './matrix/matrix'
 import Vector from './matrix/vector'
 import MatrixSize from './matrixsize'
 import ExecuteButton from './executebutton'
-import Layout from './layout'
 import Title from './title'
 import useJacobiMethodLinearEquation from '../actions/jacobiMethodLinearEquationAction'
 import { updateValues } from '../reducers/jacobiMethodLinearEquationReducer'
@@ -34,7 +33,7 @@ const MatrixContainer = ({ title, execute, result, status, executed, setStatus, 
   ) : (<></>)
 
   return (
-    <Layout>
+    <>
       <Title title={title} />
       <button onClick={ handleUpdateClick } >
         更新
@@ -70,7 +69,7 @@ const MatrixContainer = ({ title, execute, result, status, executed, setStatus, 
         { output }
 
       </Container>
-    </Layout>
+    </>
   )
 }
 
