@@ -9,7 +9,7 @@ const Matrix = ({ rowCount, columnCount, values }) => {
     let row = []
     for (let j = 0; j < columnCount; ++j) {
       row.push(
-        <td key={ ((i + 1) * 10 + (j + 1)).toString() }>
+        <td key={ (i * rowCount + j).toString() }>
           <MatrixCell
             x={ i }
             y={ j }

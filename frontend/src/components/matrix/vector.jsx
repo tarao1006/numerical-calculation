@@ -15,7 +15,7 @@ const Vector = ({ size, values, readOnly }) => {
     let row = []
     for (let j = 0; j < 1; ++j) {
       row.push(
-        <td key={ (values[i][j] + Math.random()).toString() }>
+        <td key={ (i * size + j).toString() }>
           <VectorCell
             x={ i }
             y={ j }
