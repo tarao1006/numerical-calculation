@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
-import Matrix from './matrix/matrix'
+import UpperTriangularMatrix from './matrix/upper_triangular_matrix'
+import LowerTriangularMatrix from './matrix/lower_triangular_matrix'
 import Vector from './matrix/vector'
 import MatrixSize from './matrixsize'
 import ExecuteButton from './executebutton'
@@ -8,7 +9,7 @@ import { siteTitle } from './title'
 import { updateValues } from '../lib/linearequation'
 import { Label } from './paraminput'
 
-const SubstitutionContainer = ({ children, title, execute, result, iter, status, loading, executed, setStatus, setExecuted, useLinearEquation }) => {
+const SubstitutionContainer = ({ children, title, execute, result, iter, status, loading, executed, setStatus, setExecuted, useLinearEquation, forward }) => {
 
   useEffect(() => {
     document.title = `${title} | ${siteTitle}`
@@ -22,6 +23,18 @@ const SubstitutionContainer = ({ children, title, execute, result, iter, status,
     setStatus(false)
     setExecuted(false)
   }
+
+  const matrix = forward ?
+    <LowerTriangularMatrix
+      rowCount={ size }
+      columnCount={ size }
+      values={ coefficientMatrix }
+      id={ id }/> :
+    <UpperTriangularMatrix
+      rowCount={ size }
+      columnCount={ size }
+      values={ coefficientMatrix }
+      id={ id }/>
 
   const message = (
     <StatusWrapper status={ status }>
@@ -37,10 +50,6 @@ const SubstitutionContainer = ({ children, title, execute, result, iter, status,
 
   const output = status ? (
     <>
-      <Label>イテレーション回数</Label>
-        <IterWrapper>
-          { iter }
-        </IterWrapper>
       <VectorWrapper>
       <Label>解ベクトル</Label>
         { result }
@@ -66,12 +75,7 @@ const SubstitutionContainer = ({ children, title, execute, result, iter, status,
       <Container>
         <MatrixWrapper>
           <Label>係数行列</Label>
-          <Matrix
-            rowCount={ size }
-            columnCount={ size }
-            values={ coefficientMatrix }
-            id={ id }
-          />
+          { matrix }
         </MatrixWrapper>
         <VectorWrapper>
           <Label>右辺ベクトル</Label>
