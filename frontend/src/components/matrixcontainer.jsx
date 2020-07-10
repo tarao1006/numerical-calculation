@@ -14,7 +14,7 @@ const MatrixContainer = ({ children, title, execute, result, status, executed, s
     document.title = `${title} | ${siteTitle}`
   })
 
-  const { size, coefficientMatrix, rightHandSideVector, update } = useLinearEquation()
+  const { size, coefficientMatrix, rightHandSideVector, update, id } = useLinearEquation()
 
   const handleUpdateClick = () => {
     const [s, mat, vec] = updateValues(size)
@@ -58,6 +58,7 @@ const MatrixContainer = ({ children, title, execute, result, status, executed, s
             rowCount={ size }
             columnCount={ size }
             values={ coefficientMatrix }
+            id={ id }
           />
         </MatrixWrapper>
         <VectorWrapper>
@@ -65,6 +66,7 @@ const MatrixContainer = ({ children, title, execute, result, status, executed, s
           <Vector
             size={ size }
             values={ rightHandSideVector }
+            id={ id }
           />
         </VectorWrapper>
 

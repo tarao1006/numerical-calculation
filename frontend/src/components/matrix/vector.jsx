@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import VectorCell from './vectorcell'
 
-const Vector = ({ size, values, readOnly }) => {
+const Vector = ({ size, values, readOnly, id }) => {
 
   let tmp = []
   for (let i = 0; i < size; ++i) {
@@ -15,7 +15,7 @@ const Vector = ({ size, values, readOnly }) => {
     let row = []
     for (let j = 0; j < 1; ++j) {
       row.push(
-        <td key={ (i * size + j).toString() }>
+        <td key={ `${id}${(i * size + j).toString()}` }>
           <VectorCell
             x={ i }
             y={ j }

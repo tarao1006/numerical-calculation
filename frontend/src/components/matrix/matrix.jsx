@@ -2,14 +2,14 @@ import React from 'react'
 import styled from 'styled-components'
 import MatrixCell from './matrixcell'
 
-const Matrix = ({ rowCount, columnCount, values }) => {
+const Matrix = ({ rowCount, columnCount, values, id }) => {
 
   let mat = []
   for (let i = 0; i < rowCount; ++i) {
     let row = []
     for (let j = 0; j < columnCount; ++j) {
       row.push(
-        <td key={ (i * rowCount + j).toString() }>
+        <td key={ `${id}${(i * rowCount + j).toString()}` }>
           <MatrixCell
             x={ i }
             y={ j }

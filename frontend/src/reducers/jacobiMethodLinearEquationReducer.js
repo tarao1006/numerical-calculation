@@ -1,3 +1,4 @@
+import { v4 as uuidv4} from 'uuid'
 import {
   UPDATE,
   INCREMENT,
@@ -13,7 +14,8 @@ const [size, defaultCoefficientMatrix, defaultRightHandSideVector] = updateValue
 const initialState = {
   size: size,
   coefficientMatrix: defaultCoefficientMatrix,
-  rightHandSideVector: defaultRightHandSideVector
+  rightHandSideVector: defaultRightHandSideVector,
+  id: uuidv4()
 }
 
 const jacobiMethodLinearEquation = (state = initialState, action) => {
@@ -28,7 +30,8 @@ const jacobiMethodLinearEquation = (state = initialState, action) => {
         ...state,
         size: action.size,
         coefficientMatrix: action.mat,
-        rightHandSideVector: action.vec
+        rightHandSideVector: action.vec,
+        id: uuidv4()
       }
     case INCREMENT:
       [newSize, newCoefficientMatrix, newRightHandSideVector] = changeSize(state.size + 1, state.coefficientMatrix, state.rightHandSideVector)

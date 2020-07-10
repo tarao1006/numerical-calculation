@@ -10,6 +10,7 @@ const useJacobiMethodLinearEquation = () => {
   const size = useSelector(state => state.jacobiMethodLinearEquation.size)
   const coefficientMatrix = useSelector(state => state.jacobiMethodLinearEquation.coefficientMatrix)
   const rightHandSideVector = useSelector(state => state.jacobiMethodLinearEquation.rightHandSideVector)
+  const id = useSelector(state => state.jacobiMethodLinearEquation.id)
   const dispatch = useDispatch()
 
   const update = (size, mat, vec) => {
@@ -55,6 +56,7 @@ const useJacobiMethodLinearEquation = () => {
     size,
     coefficientMatrix,
     rightHandSideVector,
+    id,
     update,
     increment,
     decrement,
