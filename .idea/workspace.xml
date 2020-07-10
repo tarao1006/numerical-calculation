@@ -20,7 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3eb38af7-3c37-4aa8-8e24-9464324490c1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/calculators/iterative_method/gauss_seidel_method.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/calculators/linear_equation/gauss_seidel_method.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/calculators/iterative_method/iterative_method_base.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/calculators/linear_equation/iterative_method_base.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/calculators/iterative_method/jacobi_method.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/calculators/linear_equation/jacobi_method.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/calculators/iterative_method/sor_method.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/calculators/linear_equation/sor_method.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/api/v1/linearequation_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/api/v1/linearequation_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/calculators/iterative_method/iterative_method_base_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/calculators/linear_equation/iterative_method_base_spec.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +47,12 @@
     <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunManager" selected="Rails.Development: numerical-calculation">
@@ -156,6 +167,7 @@
       <updated>1594050583705</updated>
       <workItem from="1594050586550" duration="102000" />
       <workItem from="1594050696761" duration="484000" />
+      <workItem from="1594374172224" duration="693000" />
     </task>
     <servers />
   </component>
@@ -172,5 +184,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

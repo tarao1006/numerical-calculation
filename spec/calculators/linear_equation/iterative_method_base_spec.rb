@@ -1,6 +1,6 @@
 require 'matrix'
 require 'rails_helper'
-require_relative '../../../app/calculators/iterative_method/iterative_method_base'
+require_relative '../../../app/calculators/linear_equation/iterative_method_base'
 
 RSpec.describe 'ValidateTest' do
 
