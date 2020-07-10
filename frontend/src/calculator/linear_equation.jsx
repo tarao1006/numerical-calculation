@@ -35,31 +35,34 @@ const LinearEquation = () => {
 }
 
 const Root = ({ url }) => {
-
+  if (url.endsWith('/')) {
+    url = url.substring(0, url.length - 1)
+  }
+  console.log(url)
   return (
-    <>
+    <Main>
       <Card>
-        <Link to={ `${url}/jacobi_method` }>
+        <Link to={ `${url}/jacobi_method` } style={{"text-decoration": "none"}}>
           <Method>
             ヤコビ法
           </Method>
         </Link>
       </Card>
       <Card>
-        <Link to={ `${url}/gauss_seidel_method` }>
+        <Link to={ `${url}/gauss_seidel_method` } style={{"text-decoration": "none"}}>
           <Method>
             ガウス・ザイデル法
           </Method>
         </Link>
       </Card>
       <Card>
-        <Link to={ `${url}/sor_method` }>
+        <Link to={ `${url}/sor_method` } style={{"text-decoration": "none"}}>
           <Method>
             SOR法
           </Method>
         </Link>
       </Card>
-    </>
+    </Main>
   )
 }
 
@@ -90,8 +93,16 @@ const Method = styled.span`
   width: 100%;
   display: block;
   text-decoration: none;
+  padding: 6em 0;
+
   cursor: ${props => props.unimplemented ? "default" : "pointer"};
   ${props => props.unimplemented && css`
     pointer-events: none;
   `}
+`
+
+const Main = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, minmax(100px, 1fr));
+  gap: 15px;
 `
