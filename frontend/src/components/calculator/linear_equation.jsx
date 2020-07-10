@@ -14,14 +14,17 @@ import { siteTitle } from '../title'
 
 const LinearEquation = () => {
 
-  let { url, path } = useRouteMatch()
+  const { path } = useRouteMatch()
+
   return (
     <Layout>
       <Switch>
       <Route exact path={ path }>
-          <Root url={ url } />
+          <Root />
         </Route>
-        <Route path={ `${path}/jacobi_method` } component={ JacobMethodLinearEquation } />
+        <Route path={ `${path}/jacobi_method` }>
+          <JacobMethodLinearEquation />
+        </Route>
         <Route path={ `${path}/gauss_seidel_method` }>
           <GaussSeidelMethodLinearEquation />
         </Route>
@@ -33,10 +36,9 @@ const LinearEquation = () => {
   )
 }
 
-const Root = ({ url }) => {
-  if (url.endsWith('/')) {
-    url = url.substring(0, url.length - 1)
-  }
+const Root = () => {
+
+  const { url } = useRouteMatch()
 
   useEffect(() => {
     document.title = `連立一次方程式 | ${siteTitle}`
