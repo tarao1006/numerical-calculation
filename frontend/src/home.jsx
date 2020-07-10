@@ -4,13 +4,15 @@ import Link from './components/linkcomposition'
 import Title, { siteTitle } from './components/title'
 
 const Home = () => {
+  console.log(window.innerHeight)
 
   useEffect(() => {
     document.title = `ホーム | ${siteTitle}`
+    console.log(window.innerHeight)
   })
 
   return (
-    <Wrapper>
+    <Wrapper　height={ `${window.innerHeight}px` }>
       <Link to="/linear_equation">
         <Category
           name="連立一次方程式"
@@ -38,7 +40,7 @@ export default Home
 const Category = ({ name, description, children }) => {
 
   return (
-    <Body>
+    <Body height={ window.innerHeight - 30 }>
       <Method>
       <Name>
         { name }
@@ -67,6 +69,7 @@ const Body = styled.div`
   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.1), 0px 2px 10px 0px rgba(0, 0, 0, 0.08);
   transition: all 0.4s ease 0s;
   color: black;
+  height: ${({ height }) => `${height}px`};
 
   &:hover {
     background: black;
@@ -75,7 +78,7 @@ const Body = styled.div`
 `
 
 const Method = styled.div`
-  padding: 15em 0;
+  padding: 20em 0;
 `
 
 const Name = styled.div`
