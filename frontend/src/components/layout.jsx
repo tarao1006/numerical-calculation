@@ -34,4 +34,7 @@ const Container = styled.div`
 
 const SideGrid = styled.div`
   grid-column: 1;
+  top: 20px;
+  position: sticky;
+  align-self: baseline;
 `
