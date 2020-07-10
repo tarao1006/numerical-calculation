@@ -23,31 +23,6 @@ const MatrixContainer = ({ children, title, execute, result, iter, status, loadi
     setExecuted(false)
   }
 
-  const message = (
-    <StatusWrapper status={ status }>
-      { status ? "Succeeded" : "Failed" }
-    </StatusWrapper>
-  )
-
-  const calculating = loading ? (
-    <Wrapper fontSize="2">
-      計算中...
-    </Wrapper>
-  ) : (<></>)
-
-  const output = status ? (
-    <>
-      <Label>イテレーション回数</Label>
-        <IterWrapper>
-          { iter }
-        </IterWrapper>
-      <VectorWrapper>
-      <Label>解ベクトル</Label>
-        { result }
-      </VectorWrapper>
-    </>
-  ) : (<></>)
-
   return (
     <>
       <Title>
@@ -86,9 +61,21 @@ const MatrixContainer = ({ children, title, execute, result, iter, status, loadi
           <ExecuteButton execute={ execute } />
         </Wrapper>
 
-        { loading && calculating }
-        { executed && message }
-        { output }
+        { loading &&
+          (<Wrapper fontSize="2">
+            計算中...
+          </Wrapper>)}
+        { executed &&
+          (<StatusWrapper status={ status }>
+            { status ? "Succeeded" : "Failed" }
+          </StatusWrapper>)}
+        { status &&
+          (<>
+            <VectorWrapper>
+            <Label>解ベクトル</Label>
+              { result }
+            </VectorWrapper>
+          </>)}
 
       </Container>
     </>
