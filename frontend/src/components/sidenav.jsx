@@ -40,16 +40,11 @@ export default SideNav
 
 const Item = styled.div`
   min-width: 200px;
-  padding: 8px 10px 8px 10px;
   color: gray;
 
   &:hover {
     background-color: rgb(240, 240, 240);
   }
-
-  ${props => props.sub && css`
-    padding-left: 25px;
-  `}
 
   ${props => props.current && css`
     background-color: rgb(230, 230, 230);
@@ -60,9 +55,9 @@ const SideNavItem = ({ children, to, sub }) => {
   const currentPath = useLocation().pathname
 
   return (
-    <Item sub={ sub } current={ to === currentPath } >
+    <Item current={ to === currentPath } >
       <Link to={ to }>
-        <Name>
+        <Name sub={ sub }>
           { children }
         </Name>
       </Link>
@@ -74,6 +69,11 @@ const Name = styled.span`
   margin: 0 auto;
   width: 100%;
   display: block;
+  padding: 8px 10px 8px 10px;
+
+  ${props => props.sub && css`
+    padding-left: 25px;
+  `}
 
   cursor: "pointer";
 `
