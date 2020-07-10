@@ -16,4 +16,11 @@ const MatrixCell = ({ x, y, val }) => {
   )
 }
 
+export const BlackCell = () => {
+
+  return (
+    <Cell readOnly black/>
+  )
+}
+
 export default MatrixCell
