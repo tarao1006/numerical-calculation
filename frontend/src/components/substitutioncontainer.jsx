@@ -8,7 +8,7 @@ import { siteTitle } from './title'
 import { updateValues } from '../lib/linearequation'
 import { Label } from './paraminput'
 
-const MainContainer = ({ children, title, execute, result, iter, status, loading, executed, setStatus, setExecuted, useLinearEquation }) => {
+const SubstitutionContainer = ({ children, title, execute, result, iter, status, loading, executed, setStatus, setExecuted, useLinearEquation }) => {
 
   useEffect(() => {
     document.title = `${title} | ${siteTitle}`
@@ -95,7 +95,7 @@ const MainContainer = ({ children, title, execute, result, iter, status, loading
   )
 }
 
-export default MainContainer
+export default SubstitutionContainer
 
 const Title = styled.h1`
   font-size: 2em;
