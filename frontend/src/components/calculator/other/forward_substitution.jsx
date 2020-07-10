@@ -21,6 +21,7 @@ const ForwardSubstitution = () => {
         setStatus={ setStatus }
         setExecuted={ setExecuted }
         useLinearEquation={ useJacobiMethodLinearEquation }
+        forward
       />
     </>
   )
