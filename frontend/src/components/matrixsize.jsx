@@ -19,17 +19,71 @@ const MatrixSize = ({ setStatus, setExecuted }) => {
   }
 
   return (
-    <>
+    <Container>
+      <Label>サイズ</Label>
       <Size>{ size }</Size>
-      <button onClick={ handlePlusClick }>+</button>
-      <button onClick={ handleMinusClick }>-</button>
-    </>
+      <PlusButton onClick={ handlePlusClick } />
+      <MinusButton onClick={ handleMinusClick } />
+    </Container>
   )
 }
 
 export default MatrixSize
 
+const Container = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`
+
+const Label = styled.label`
+  font-size: 20px;
+`
+
 const Size = styled.span`
   font-size: 20px;
   padding: 0 10px;
+`
+
+const Button = styled.span`
+  position: relative;
+  display: inline-block;
+  width: 1.6em;
+  height: 1.6em;
+  border-radius: 50%;
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+  margin: 0 0.2em;
+  vertical-align: middle;
+`
+
+const MinusButton = styled(Button)`
+  background: blue;
+
+  &::before {
+    position: absolute;
+    top: 0.675em;
+    left: 50%;
+    content: "";
+    display: inline-block;
+    width: 1.2em;
+    border-top: solid 0.25em white;
+    transform: translateX(-50%);
+  }
+`
+
+const PlusButton = styled(MinusButton)`
+  background: red;
+
+  &::after {
+    position: absolute;
+    top: 50%;
+    left: 0.675em;
+    content: "";
+    display: inline-block;
+    height: 1.2em;
+    border-left: solid 0.25em white;
+    transform: translateY(-50%);
+  }
 `
