@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import SubstitutionContainer from '../../substitutioncontainer'
 import Vector from '../../matrix/vector'
-import useJacobiMethodLinearEquation from '../../../actions/jacobiMethodLinearEquationAction'
+import useForwardSubstitution from '../../../actions/other/backward_substitution'
 
 const BackwardSubstitution = () => {
   const title = "後退代入"
@@ -10,7 +10,7 @@ const BackwardSubstitution = () => {
   const [ executed, setExecuted ] = useState(false)
   const [ loading, setLoading ] = useState(false)
   const [ solutionVector, setSolutionVector ] = useState([])
-  const { size, coefficientMatrix, rightHandSideVector } = useJacobiMethodLinearEquation()
+  const { size, coefficientMatrix, rightHandSideVector } = useForwardSubstitution()
 
   const execute = async () => {
     setExecuted(false)
@@ -52,7 +52,7 @@ const BackwardSubstitution = () => {
         }
         setStatus={ setStatus }
         setExecuted={ setExecuted }
-        useLinearEquation={ useJacobiMethodLinearEquation }
+        useLinearEquation={ useForwardSubstitution }
         forward={ false }
       />
     </>
