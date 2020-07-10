@@ -9,7 +9,7 @@ import { siteTitle } from './title'
 import { updateValues } from '../lib/linearequation'
 import { Label } from './paraminput'
 
-const SubstitutionContainer = ({ children, title, execute, result, iter, status, loading, executed, setStatus, setExecuted, useLinearEquation, forward }) => {
+const SubstitutionContainer = ({ children, title, execute, result, status, loading, executed, setStatus, setExecuted, useLinearEquation, forward }) => {
 
   useEffect(() => {
     document.title = `${title} | ${siteTitle}`
@@ -35,27 +35,6 @@ const SubstitutionContainer = ({ children, title, execute, result, iter, status,
       columnCount={ size }
       values={ coefficientMatrix }
       id={ id }/>
-
-  const message = (
-    <StatusWrapper status={ status }>
-      { status ? "Succeeded" : "Failed" }
-    </StatusWrapper>
-  )
-
-  const calculating = loading ? (
-    <Wrapper fontSize="2">
-      計算中...
-    </Wrapper>
-  ) : (<></>)
-
-  const output = status ? (
-    <>
-      <VectorWrapper>
-      <Label>解ベクトル</Label>
-        { result }
-      </VectorWrapper>
-    </>
-  ) : (<></>)
 
   return (
     <>
@@ -90,9 +69,21 @@ const SubstitutionContainer = ({ children, title, execute, result, iter, status,
           <ExecuteButton execute={ execute } />
         </Wrapper>
 
-        { loading && calculating }
-        { executed && message }
-        { output }
+        { loading &&
+          (<Wrapper fontSize="2">
+            計算中...
+          </Wrapper>)}
+        { executed &&
+          (<StatusWrapper status={ status }>
+            { status ? "Succeeded" : "Failed" }
+          </StatusWrapper>)}
+        { status &&
+          (<>
+            <VectorWrapper>
+            <Label>解ベクトル</Label>
+              { result }
+            </VectorWrapper>
+          </>)}
 
       </Container>
     </>
@@ -158,9 +149,4 @@ const StatusWrapper = styled.div`
   border-radius: 10px;
   color: white;
   background: ${props => props.status ? "#5cb85c" : "#d9534f"};
-`
-
-const IterWrapper = styled.div`
-  margin: 0 auto;
-  font-size: 1.5em;
 `
