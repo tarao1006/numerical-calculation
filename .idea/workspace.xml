@@ -21,10 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3eb38af7-3c37-4aa8-8e24-9464324490c1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/calculators/backward_substitution.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/calculators/other/backward_substitution.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/calculators/base.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/calculators/other/other_base.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/calculators/forward_substitution.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/calculators/other/forward_substitution.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/calculators/lu_decomposition.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/calculators/other/lu_decomposition.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/calculators/other/lu_decomposition.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/calculators/other/lu_decomposition.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/api/v1/calculator_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/api/v1/calculator_controller.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -172,7 +169,7 @@
       <updated>1594050583705</updated>
       <workItem from="1594050586550" duration="102000" />
       <workItem from="1594050696761" duration="484000" />
-      <workItem from="1594374172224" duration="1847000" />
+      <workItem from="1594374172224" duration="2339000" />
     </task>
     <servers />
   </component>

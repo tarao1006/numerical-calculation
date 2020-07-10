@@ -23,23 +23,17 @@ module Api
         calculator = BackwardSubstitution.new(mat, b)
         ans = calculator.run
 
-        p ans
-
         render json: { status: 'SUCCESS', ans: ans}, status: :ok
       end
 
       def lu_decomposition
-        # calculator = LuDecomposition.new
-        # size = params[:size]
-        # mat = Array(params[:matrix])
-        #
-        # unless calculator.validate(mat)
-        #   render json: { status: 'ERROR' }, status: :ok
-        # end
-        #
-        # matrix_l, matrix_u = calculator.calculate(mat)
-        #
-        # render json: { status: 'SUCCESS', size: size, matrixL: matrix_l, matrixU: matrix_u }, status: :ok
+        mat = params[:matrix]
+
+        calculator = LuDecomposition.new(mat)
+
+        matrix_l, matrix_u, matrix_p = calculator.calculate
+
+        render json: { status: 'SUCCESS', matrixL: matrix_l, matrixU: matrix_u, matrixP: matrix_p }, status: :ok
       end
     end
   end
