@@ -9,7 +9,7 @@ import BackwardSubstitution from './other/backward_substitution'
 import LuDecomposition from './other/lu_decomposition'
 import Layout from '../layout'
 import { siteTitle } from '../title';
-
+import Card, { Main } from './card'
 
 const Other = () => {
 
@@ -35,8 +35,6 @@ const Other = () => {
   )
 }
 
-export default Other
-
 const Root = () => {
 
   const { url } = useRouteMatch()
@@ -46,6 +44,18 @@ const Root = () => {
   })
 
   return (
-    <>root</>
+    <Main>
+      <Card to={ `${url}/forward_substitution` }>
+        前方代入
+      </Card>
+      <Card to={ `${url}/backward_substitution` }>
+        後退代入
+      </Card>
+      <Card to={ `${url}/lu_decomposition` }>
+        LU分解
+      </Card>
+    </Main>
   )
 }
+
+export default Other
