@@ -19,7 +19,8 @@ const SorMethodLinearEquation = () => {
         'http://localhost:3001/api/v1/linear_equation/sor_method', {
           "size": size,
           "matrix": coefficientMatrix,
-          "b": rightHandSideVector
+          "b": rightHandSideVector,
+          "omega": Number.parseFloat(relaxationParameter)
         })
 
         setStatus(result.data.status === 'SUCCESS')
