@@ -41,14 +41,16 @@ const MatrixContainer = ({ title, execute, result, status, executed, setStatus, 
       <Title>
         { title }
       </Title>
-      <button onClick={ handleUpdateClick } >
-        更新
-      </button>
-      <Label>サイズ</Label>
       <MatrixSize
         setStatus={ setStatus }
         setExecuted={ setExecuted }
       />
+
+      <ButtonWrapper>
+        <GenerateButton onClick={ handleUpdateClick } >
+          生成
+        </GenerateButton>
+      </ButtonWrapper>
 
       <Container>
         <MatrixWrapper>
@@ -92,6 +94,26 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+`
+
+const GenerateButton = styled.button`
+  width: 100px;
+  color: black;
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.4em 1em;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.1), 0px 2px 10px 0px rgba(0, 0, 0, 0.08);
+  transition: all 0.25s ease 0s;
+  background: white;
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+
+   &:hover {
+    background: lightgray;
+  }
 `
 
 const Label = styled.label`
