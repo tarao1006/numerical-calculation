@@ -5,31 +5,21 @@ import Link from './linkcomposition'
 
 const SideNav = () => {
 
-  let { url, path } = useRouteMatch()
-
-  if (url.endsWith('/')) {
-    url = url.substring(0, url.length - 1)
-  }
-
-  if (path.endsWith('/')) {
-    path = path.substring(0, path.length - 1)
-  }
-
   return (
     <>
       <SideNavItem to="/">
           ホーム
       </SideNavItem>
-      <SideNavItem to={`${url}`}>
+      <SideNavItem to={`/linear_equation`}>
           連立一次方程式
       </SideNavItem>
-      <SideNavItem sub to={`${url}/jacobi_method`}>
+      <SideNavItem sub to={`/linear_equation/jacobi_method`}>
           ヤコビ法
       </SideNavItem>
-      <SideNavItem sub to={`${url}/gauss_seidel_method`}>
+      <SideNavItem sub to={`/linear_equation/gauss_seidel_method`}>
           ガウス・ザイデル法
       </SideNavItem>
-      <SideNavItem sub to={`${url}/sor_method`}>
+      <SideNavItem sub to={`/linear_equation/sor_method`}>
           SOR法
       </SideNavItem>
     </>
