@@ -7,10 +7,10 @@ export const CHANGE_COEFFICIENT_MATRIX_VALUE = 'CHANGE_COEFFICIENT_MATRIX_VALUE'
 export const CHANGE_RIGHT_HAND_SIDE_VECTOR_VALUE = 'CHANGE_RIGHT_HAND_SIDE_VECTOR_VALUE';
 
 const useGaussSeidelMethodLinearEquation = () => {
-  const size = useSelector(state => state.jacobiMethodLinearEquation.size)
-  const coefficientMatrix = useSelector(state => state.jacobiMethodLinearEquation.coefficientMatrix)
-  const rightHandSideVector = useSelector(state => state.jacobiMethodLinearEquation.rightHandSideVector)
-  const id = useSelector(state => state.jacobiMethodLinearEquation.id)
+  const size = useSelector(state => state.gaussSeidelMethodLinearEquation.size)
+  const coefficientMatrix = useSelector(state => state.gaussSeidelMethodLinearEquation.coefficientMatrix)
+  const rightHandSideVector = useSelector(state => state.gaussSeidelMethodLinearEquation.rightHandSideVector)
+  const id = useSelector(state => state.gaussSeidelMethodLinearEquation.id)
   const dispatch = useDispatch()
 
   const update = (size, mat, vec) => {
