@@ -1,30 +1,34 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {
   Switch,
   Route,
   useRouteMatch
 } from "react-router-dom";
+import ForwardSubstitution from './other/forward_substitution'
+import BackwardSubstitution from './other/backward_substitution'
+import LuDecomposition from './other/lu_decomposition'
 import Layout from '../layout'
+import { siteTitle } from '../title';
 
 
 const Other = () => {
 
-  const { url, path} = useRouteMatch()
+  const { path} = useRouteMatch()
 
   return (
     <Layout>
       <Switch>
         <Route exact path={ path }>
-          <Root url={ url } />
+          <Root />
         </Route>
         <Route path={ `${path}/forward_substitution` }>
-          <>前進代入</>
+          <ForwardSubstitution />
         </Route>
         <Route path={ `${path}/backward_substitution` }>
-          <>後退代入</>
+          <BackwardSubstitution />
         </Route>
         <Route path={ `${path}/lu_decomposition` }>
-          <>LU分解</>
+          <LuDecomposition />
         </Route>
       </Switch>
     </Layout>
@@ -33,7 +37,13 @@ const Other = () => {
 
 export default Other
 
-const Root = ({ url }) => {
+const Root = () => {
+
+  const { url } = useRouteMatch()
+
+  useEffect(() => {
+    document.title = `その他 | ${siteTitle}`
+  })
 
   return (
     <>root</>
