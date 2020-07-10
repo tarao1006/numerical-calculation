@@ -41,16 +41,13 @@ const MatrixContainer = ({ title, execute, result, status, executed, setStatus, 
       <Title>
         { title }
       </Title>
-      <MatrixSize
-        setStatus={ setStatus }
-        setExecuted={ setExecuted }
-      />
 
-      <ButtonWrapper>
+      <HeadContainer>
+        <MatrixSize setStatus={ setStatus } setExecuted={ setExecuted } />
         <GenerateButton onClick={ handleUpdateClick } >
           生成
         </GenerateButton>
-      </ButtonWrapper>
+      </HeadContainer>
 
       <Container>
         <MatrixWrapper>
@@ -94,6 +91,10 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+`
+
+const HeadContainer = styled.div`
+  display: flex;
 `
 
 const GenerateButton = styled.button`
