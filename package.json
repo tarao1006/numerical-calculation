@@ -10,9 +10,7 @@
     "start": "webpack-dev-server --history-api-fallback",
     "test": "NODE_ENV=test jest"
   },
-  "dependencies": {
-    "core-js": "^3.6.5"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.10.4",
     "@babel/plugin-transform-modules-commonjs": "^7.10.4",
@@ -22,6 +20,7 @@
     "axios": "^0.19.2",
     "babel-jest": "^26.1.0",
     "babel-loader": "^8.1.0",
+    "core-js": "^3.6.5",
     "html-webpack-plugin": "^4.3.0",
     "jest": "^26.1.0",
     "react": "^16.13.1",
