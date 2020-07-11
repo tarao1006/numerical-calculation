@@ -18,7 +18,7 @@ const ForwardSubstitution = () => {
     setLoading(true)
     try {
       const result = await axios.post(
-        'http://localhost:3001/api/v1/calculator/forward_substitution', {
+        'http://localhost:3001/api/v1/other/forward_substitution', {
           "size": size,
           "matrix": coefficientMatrix,
           "b": rightHandSideVector

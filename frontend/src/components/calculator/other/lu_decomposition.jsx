@@ -19,7 +19,7 @@ const LuDecomposition = () => {
     setLoading(true)
     try {
       const result = await axios.post(
-        'http://localhost:3001/api/v1/calculator/lu_decomposition', {
+        'http://localhost:3001/api/v1/other/lu_decomposition', {
           "size": size,
           "matrix": coefficientMatrix
         })
