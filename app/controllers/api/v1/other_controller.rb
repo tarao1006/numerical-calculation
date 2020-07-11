@@ -27,17 +27,12 @@ module Api
       end
 
       def lu_decomposition
-        calculator = LuDecomposition.new
-        size = params[:size]
-        mat = Array(params[:matrix])
+        mat = params[:matrix]
 
-        unless calculator.validate(mat)
-          render json: { status: 'ERROR' }, status: :ok
-        end
+        calculator = LuDecomposition.new(mat)
+        matrix_l, matrix_u, matrix_p = calculator.calculate
 
-        matrix_l, matrix_u = calculator.calculate(mat)
-
-        render json: { status: 'SUCCESS', size: size, matrixL: matrix_l, matrixU: matrix_u }, status: :ok
+        render json: { status: 'SUCCESS', size: size, matrixL: matrix_l, matrixU: matrix_u, matrixP: matrix_p }, status: :ok
       end
     end
   end

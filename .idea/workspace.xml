@@ -20,6 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3eb38af7-3c37-4aa8-8e24-9464324490c1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/app/calculators/other/lu_decomposition.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/calculators/other/lu_decomposition.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/api/v1/other_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/api/v1/other_controller.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
