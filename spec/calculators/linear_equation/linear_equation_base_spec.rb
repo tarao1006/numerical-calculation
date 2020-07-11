@@ -36,5 +36,4 @@ RSpec.describe 'ValidateTest' do
     base.validate
     expect(base.is_valid).to eq(false)
   end
-
 end
