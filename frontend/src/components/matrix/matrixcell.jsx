@@ -2,7 +2,7 @@ import React from 'react'
 import Cell from './cell'
 import useJacobiMethodLinearEquation from '../../actions/jacobiMethodLinearEquationAction'
 
-const MatrixCell = ({ x, y, val }) => {
+const MatrixCell = ({ x, y, val, readOnly }) => {
 
   const { changeCoefficientMatrixValue } = useJacobiMethodLinearEquation()
 
@@ -12,6 +12,7 @@ const MatrixCell = ({ x, y, val }) => {
       y={y}
       val={val}
       onValueChange={ changeCoefficientMatrixValue }
+      readOnly={ readOnly }
     />
   )
 }
