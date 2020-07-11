@@ -32,7 +32,9 @@ module Api
         calculator = LuDecomposition.new(mat)
         matrix_l, matrix_u, matrix_p = calculator.run
 
-        render json: { status: 'SUCCESS', matrixL: matrix_l, matrixU: matrix_u, matrixP: matrix_p }, status: :ok
+        status = (matrix_l.to_a.length == 0) ? 'FAILURE' : 'SUCCESS'
+
+        render json: { status: status, matrixL: matrix_l, matrixU: matrix_u, matrixP: matrix_p }, status: :ok
       end
     end
   end

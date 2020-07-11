@@ -13,7 +13,7 @@ class LuDecomposition
   end
 
   def validate
-    @is_valid = is_square_matrix(@mat)
+    @is_valid = is_square_matrix(@mat) && (@mat.rank == @n)
   end
 
   def max_index(vec)
