@@ -1,7 +1,7 @@
 require 'matrix'
-require_relative './iterative_method_base'
+require_relative './linear_equation_base'
 
-class GaussSeidelMethod < IterativeMethodBase
+class JacobiMethod < LinearEquationBase
 
   def core
     while true do
@@ -9,12 +9,7 @@ class GaussSeidelMethod < IterativeMethodBase
       (0...@n).each do |i|
         tmp = 0.0
         (0...@n).each do |j|
-          if i == j
-            next
-          end
-          if j < i
-            tmp += @mat_a[i, j] * @new_x[j]
-          else
+          if i != j
             tmp += @mat_a[i, j] * @old_x[j]
           end
         end

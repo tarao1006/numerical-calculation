@@ -1,22 +1,9 @@
 require 'matrix'
-require_relative './iterative_method_base'
+require_relative './linear_equation_base'
 
-class SorMethod < IterativeMethodBase
-
-  def initialize(a, b, omega = 1.5)
-    super(a, b)
-    @omega = omega
-  end
-
-  def validate_omega
-    if @omega >= 2.0 or @omega <= 0
-      @omega = 1.5
-    end
-  end
+class GaussSeidelMethod < LinearEquationBase
 
   def core
-    validate_omega
-
     while true do
       @iter = @iter.succ
       (0...@n).each do |i|
@@ -33,7 +20,6 @@ class SorMethod < IterativeMethodBase
         end
 
         @new_x[i] = (@mat_b[i] - tmp) / @mat_a[i, i]
-        @new_x[i] = @old_x[i] + @omega * (@new_x[i] - @old_x[i])
       end
 
       err = 0.0

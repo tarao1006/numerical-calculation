@@ -1,6 +1,6 @@
-require_relative '../../../calculators/iterative_method/jacobi_method'
-require_relative '../../../calculators/iterative_method/gauss_seidel_method'
-require_relative '../../../calculators/iterative_method/sor_method'
+require_relative '../../../calculators/linear_equation/jacobi_method'
+require_relative '../../../calculators/linear_equation/gauss_seidel_method'
+require_relative '../../../calculators/linear_equation/sor_method'
 
 
 module Api

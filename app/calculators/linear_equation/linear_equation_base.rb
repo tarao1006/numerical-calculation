@@ -1,6 +1,6 @@
 require 'matrix'
 
-class IterativeMethodBase
+class LinearEquationBase
 
   attr_reader :is_valid
   def is_square_matrix(mat)
