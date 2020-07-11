@@ -1,7 +1,6 @@
 require 'matrix'
-require_relative './base'
 
-class LuDecomposition < Base
+class LuDecomposition
 
   def max_index(vec)
     m_idx = 0
