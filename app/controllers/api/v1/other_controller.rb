@@ -1,16 +1,17 @@
-require_relative '../../../calculators/lu_decomposition'
-require_relative '../../../calculators/forward_substitution'
-require_relative '../../../calculators/backward_substitution'
+require_relative '../../../calculators/other/lu_decomposition'
+require_relative '../../../calculators/other/forward_substitution'
+require_relative '../../../calculators/other/backward_substitution'
 
 module Api
   module V1
-    class CalculatorController < ApplicationController
+    class OtherController < ApplicationController
 
       def forward_substitution
         mat = params[:matrix]
         b = params[:b]
 
-        ans = ForwardSubstitution.run(mat, b)
+        calculator = ForwardSubstitution.new(mat, b)
+        ans = calculator.run
 
         render json: { status: 'SUCCESS', ans: ans}, status: :ok
       end
@@ -19,9 +20,11 @@ module Api
         mat = params[:matrix]
         b = params[:b]
 
-        ans = BackwardSubstitution.run(mat, b)
+        calculator = BackwardSubstitution.new(mat, b)
+        ans = calculator.run
 
-        render json: { status: 'SUCCESS', ans: ans}, status: :ok end
+        render json: { status: 'SUCCESS', ans: ans}, status: :ok
+      end
 
       def lu_decomposition
         calculator = LuDecomposition.new

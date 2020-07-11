@@ -3,7 +3,7 @@ require_relative './other_base'
 class BackwardSubstitution < OtherBase
 
   def core
-    n = b.size - 1
+    n = @mat_b.size - 1
     @mat_b[n] /= @mat_a[n, n]
 
     (n - 1).downto(0) do |i|
