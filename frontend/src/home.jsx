@@ -30,7 +30,7 @@ const Home = () => {
             description="行列の固有値を求めます。"
           />
         </Link>
-        <Link to="/linear_equation">
+        <Link to="/other">
           <Category
             name="その他"
             description="その他有名なものです。"
