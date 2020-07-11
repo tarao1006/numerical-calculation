@@ -70,6 +70,10 @@ const DecompositionContainer = ({ children, title, execute, result, status, load
             <Label>U行列</Label>
               { result.mat_u }
             </MatrixWrapper>
+            <MatrixWrapper>
+            <Label>P行列</Label>
+              { result.mat_p }
+            </MatrixWrapper>
           </>)}
 
       </Container>

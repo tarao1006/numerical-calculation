@@ -11,6 +11,7 @@ const LuDecomposition = () => {
   const [ loading, setLoading ] = useState(false)
   const [ matL, setMatL ] = useState([])
   const [ matU, setMatU ] = useState([])
+  const [ matP, setMatP ] = useState([])
   const { size, coefficientMatrix } = useForwardSubstitution()
 
   const execute = async () => {
@@ -27,6 +28,7 @@ const LuDecomposition = () => {
         setStatus(result.data.status === 'SUCCESS')
         setMatL(result.data.matrixL)
         setMatU(result.data.matrixU)
+        setMatP(result.data.matrixP)
         setExecuted(true)
       } catch (error) {
         setStatus(false)
@@ -55,6 +57,12 @@ const LuDecomposition = () => {
               rowCount={ matU.length }
               columnCount={ matU.length }
               values={ matU }
+              readOnly={ true }
+            />,
+            mat_p: <Matrix
+              rowCount={ matP.length }
+              columnCount={ matP.length }
+              values={ matP }
               readOnly={ true }
             />
           }
