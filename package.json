@@ -21,6 +21,7 @@
     "babel-jest": "^26.1.0",
     "babel-loader": "^8.1.0",
     "core-js": "^3.6.5",
+    "dotenv-webpack": "^2.0.0",
     "html-webpack-plugin": "^4.3.0",
     "jest": "^26.1.0",
     "react": "^16.13.1",

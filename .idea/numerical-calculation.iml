@@ -375,6 +375,33 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="foreman (vbundled(0.87.1)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/foreman-0.87.1/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/foreman-0.87.1/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/foreman-0.87.1/man" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/foreman-0.87.1/data" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/foreman-0.87.1/spec" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/foreman-0.87.1/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/foreman-0.87.1/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/foreman-0.87.1/man" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/foreman-0.87.1/data" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/foreman-0.87.1/spec" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/foreman-0.87.1/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/foreman-0.87.1/man" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/foreman-0.87.1/data" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/foreman-0.87.1/spec" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="globalid (vbundled(0.4.2)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
