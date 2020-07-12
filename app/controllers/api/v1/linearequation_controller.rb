@@ -15,7 +15,7 @@ module Api
         mat = params[:matrix]
         b = params[:b]
 
-        calculator = JacobiMethod.new(mat, b)
+        calculator = LinearEquation::JacobiMethod.new(mat, b)
         ans, iter = calculator.run
 
         status = if (ans.to_a.length == 0) and iter < 0
