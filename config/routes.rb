@@ -12,10 +12,10 @@ Rails.application.routes.draw do
       post '/linear_equation/sor_method', to: 'linearequation#sor_method'
 
       post '/linear_equation/echo', to: 'linearequation#echo'
-
-      get '*path', to: "application#fallback_index_html", constraints: ->(request) do
-        !request.xhr? && request.format.html?
-      end
     end
+  end
+
+  get '*path', to: "application#fallback_index_html", constraints: ->(request) do
+    !request.xhr? && request.format.html?
   end
 end
