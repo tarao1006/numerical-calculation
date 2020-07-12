@@ -6,10 +6,11 @@ import {
   CHANGE_COEFFICIENT_MATRIX_VALUE,
   CHANGE_RIGHT_HAND_SIDE_VECTOR_VALUE
 } from '../actions/matrix';
-import { updateValues, changeMatrixValue, changeVectorValue, changeSize } from '../lib/linearequation'
+import { changeMatrixValue, changeVectorValue, changeSize } from '../lib/matrix'
+import { updateLowerTriangularMatrix } from '../lib/other'
 
 const defaultSize = 5
-const [size, defaultCoefficientMatrix, defaultRightHandSideVector] = updateValues(defaultSize)
+const [size, defaultCoefficientMatrix, defaultRightHandSideVector] = updateLowerTriangularMatrix(defaultSize)
 
 export const initialState = {
   size: size,
