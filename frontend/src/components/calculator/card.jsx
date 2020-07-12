@@ -2,10 +2,10 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import Link from '../linkcomposition'
 
-const Card = ({ children, to }) => {
+const Card = ({ children, unimplemented, to }) => {
 
   return (
-    <Body>
+    <Body unimplemented={ unimplemented }>
         <Link to={ to }>
           <Method>
             { children }
