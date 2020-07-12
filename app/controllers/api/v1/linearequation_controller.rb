@@ -31,7 +31,7 @@ module Api
         mat = params[:matrix]
         b = params[:b]
 
-        calculator = GaussSeidelMethod.new(mat, b)
+        calculator = LinearEquation::GaussSeidelMethod.new(mat, b)
         ans, iter = calculator.run
 
         status = if (ans.to_a.length == 0) and iter < 0
@@ -48,7 +48,7 @@ module Api
         b = params[:b]
         omega = params[:omega] ? params[:omega] : 1.5
 
-        calculator = SorMethod.new(mat, b, omega)
+        calculator = LinearEquation::SorMethod.new(mat, b, omega)
         ans, iter = calculator.run
 
         status = if (ans.to_a.length == 0) and iter < 0

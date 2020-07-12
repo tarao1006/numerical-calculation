@@ -10,7 +10,7 @@ module Api
         mat = params[:matrix]
         b = params[:b]
 
-        calculator = ForwardSubstitution.new(mat, b)
+        calculator = Other::ForwardSubstitution.new(mat, b)
         ans = calculator.run
 
         render json: { status: 'SUCCESS', ans: ans}, status: :ok
@@ -20,7 +20,7 @@ module Api
         mat = params[:matrix]
         b = params[:b]
 
-        calculator = BackwardSubstitution.new(mat, b)
+        calculator = Other::BackwardSubstitution.new(mat, b)
         ans = calculator.run
 
         render json: { status: 'SUCCESS', ans: ans}, status: :ok
@@ -29,7 +29,7 @@ module Api
       def lu_decomposition
         mat = params[:matrix]
 
-        calculator = LuDecomposition.new(mat)
+        calculator = Other::LuDecomposition.new(mat)
         matrix_l, matrix_u, matrix_p = calculator.run
 
         status = (matrix_l.to_a.length == 0) ? 'FAILURE' : 'SUCCESS'
