@@ -1,5 +1,7 @@
 # Numerical Calculation
 「工学のための数値計算」に掲載されている基本的な数値計算アルゴリズムを実行することができます。
+Herokuにデプロイしています。
+https://numerical-calculation.herokuapp.com/
 
 # 実装機能
 ### 連立一次方程式
