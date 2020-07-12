@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import styled from 'styled-components'
+import styled, { css }from 'styled-components'
 import Link from './components/linkcomposition'
 import { siteTitle } from './components/title'
 
@@ -24,12 +24,11 @@ const Home = () => {
             description="連立一次方程式を解きます。"
           />
         </Link>
-        <Link to="/linear_equation">
-          <Category
-            name="固有値"
-            description="行列の固有値を求めます。"
-          />
-        </Link>
+        <Category
+          name="固有値"
+          description="行列の固有値を求めます。"
+          unimplemented
+        />
         <Link to="/other">
           <Category
             name="その他"
@@ -43,10 +42,10 @@ const Home = () => {
 
 export default Home
 
-const Category = ({ name, description }) => {
+const Category = ({ name, description, unimplemented }) => {
 
   return (
-    <Body height={ window.innerHeight - 300 }>
+    <Body height={ window.innerHeight - 300 } unimplemented={ unimplemented }>
       <Name>
         { name }
       </Name>
@@ -90,10 +89,16 @@ const Body = styled.div`
   align-items: center;
   flex-direction: column;
 
-  &:hover {
-    background: black;
-    color: white;
-  }
+  ${props => props.unimplemented && css`
+    opacity: 0.4;
+  `}
+
+  ${props => !props.unimplemented && css`
+    &:hover {
+      background: black;
+      color: white;
+    }
+  `}
 `
 
 const Name = styled.div`
