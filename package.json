@@ -8,8 +8,7 @@
   "private": true,
   "scripts": {
     "start": "webpack-dev-server --history-api-fallback",
-    "test": "NODE_ENV=test jest",
-    "heroku-postbuild": "yarn webpack"
+    "test": "NODE_ENV=test jest"
   },
   "dependencies": {},
   "devDependencies": {
