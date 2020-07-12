@@ -34,5 +34,7 @@
 /node_modules/*
 /dist/*
 
+/public/index.html
+/public/bundle.js
 .DS_Store
 /vendor/bundle/*
