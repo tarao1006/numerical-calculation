@@ -11,7 +11,7 @@ module Api
         render json: { status: 'SUCCESS', data: params[:data] }
       end
 
-      def jacobi_method
+      def jacobimethod
         mat = params[:matrix]
         b = params[:b]
 
