@@ -7,7 +7,7 @@ Rails.application.routes.draw do
       post '/other/forward_substitution', to: 'other#forward_substitution'
       post '/other/backward_substitution', to: 'other#backward_substitution'
       post '/other/lu_decomposition', to: 'other#lu_decomposition'
-      post '/linear_equation/jacobi_method', to: 'linearequation#jacobi_method'
+      post '/linear_equation/jacobi_method', to: 'linearequation#jacobimethod'
       post '/linear_equation/gauss_seidel_method', to: 'linearequation#gauss_seidel_method'
       post '/linear_equation/sor_method', to: 'linearequation#sor_method'
 
