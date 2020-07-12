@@ -33,8 +33,6 @@ export const createLowerTriangularMatrix = size => {
     }
     res.push(row)
   }
-  console.log(res)
-  console.log(size)
   return res
 }
 
