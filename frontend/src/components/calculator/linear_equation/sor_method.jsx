@@ -20,7 +20,7 @@ const SorMethodLinearEquation = () => {
     setLoading(true)
     try {
       const result = await axios.post(
-        'http://localhost:3001/api/v1/linear_equation/sor_method', {
+        `${process.env.REACT_APP_SERVER_URL}/api/v1/linear_equation/sor_method`, {
           "size": size,
           "matrix": coefficientMatrix,
           "b": rightHandSideVector,

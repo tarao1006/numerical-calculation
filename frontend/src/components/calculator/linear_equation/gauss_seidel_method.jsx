@@ -19,7 +19,7 @@ const GaussSeidelMethodLinearEquation = () => {
     setLoading(true)
     try {
       const result = await axios.post(
-        'http://localhost:3001/api/v1/linear_equation/gauss_seidel_method', {
+        'http://:3001/api/v1/linear_equation/gauss_seidel_method', {
           "size": size,
           "matrix": coefficientMatrix,
           "b": rightHandSideVector
@@ -57,7 +57,7 @@ const GaussSeidelMethodLinearEquation = () => {
       setStatus={ setStatus }
       setExecuted={ setExecuted }
       useLinearEquation={ useGaussSeidelMethodLinearEquation }
-    / >
+    />
   )
 }
 

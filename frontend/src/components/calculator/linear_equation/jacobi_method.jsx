@@ -19,7 +19,7 @@ const JacobMethodLinearEquation = () => {
     setLoading(true)
     try {
       const result = await axios.post(
-        'http://localhost:3001/api/v1/linear_equation/jacobi_method', {
+        `${process.env.REACT_APP_SERVER_URL}/api/v1/linear_equation/jacobi_method`, {
           "size": size,
           "matrix": coefficientMatrix,
           "b": rightHandSideVector
@@ -57,7 +57,7 @@ const JacobMethodLinearEquation = () => {
       setStatus={ setStatus }
       setExecuted={ setExecuted }
       useLinearEquation={ useJacobiMethodLinearEquation }
-    / >
+    />
   )
 }
 
