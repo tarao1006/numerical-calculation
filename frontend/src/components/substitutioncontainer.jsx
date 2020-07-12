@@ -6,7 +6,7 @@ import Vector from './matrix/vector'
 import MatrixSize from './matrixsize'
 import ExecuteButton from './executebutton'
 import { siteTitle } from './title'
-import { updateValues } from '../lib/linearequation'
+import { updateLowerTriangularMatrix, updateUpperTriangularMatrix } from '../lib/other'
 import { Label } from './paraminput'
 
 const SubstitutionContainer = ({ children, title, execute, result, status, loading, executed, setStatus, setExecuted, useLinearEquation, forward }) => {
@@ -18,7 +18,7 @@ const SubstitutionContainer = ({ children, title, execute, result, status, loadi
   const { size, coefficientMatrix, rightHandSideVector, update, id } = useLinearEquation()
 
   const handleUpdateClick = () => {
-    const [s, mat, vec] = updateValues(size)
+    const [s, mat, vec] = forward ? updateLowerTriangularMatrix(size) : updateUpperTriangularMatrix(size)
     update(s, mat, vec)
     setStatus(false)
     setExecuted(false)
