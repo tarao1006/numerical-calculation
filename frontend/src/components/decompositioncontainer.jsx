@@ -4,7 +4,7 @@ import Matrix from './matrix/matrix'
 import MatrixSize from './matrixsize'
 import ExecuteButton from './executebutton'
 import { siteTitle } from './title'
-import { updateValues } from '../lib/linearequation'
+import { updateMatrix } from '../lib/other'
 import { Label } from './paraminput'
 
 const DecompositionContainer = ({ children, title, execute, result, status, loading, executed, setStatus, setExecuted, useLinearEquation }) => {
@@ -16,7 +16,7 @@ const DecompositionContainer = ({ children, title, execute, result, status, load
   const { size, coefficientMatrix, update, id } = useLinearEquation()
 
   const handleUpdateClick = () => {
-    const [s, mat, vec] = updateValues(size)
+    const [s, mat, vec] = updateMatrix(size)
     update(s, mat, vec)
     setStatus(false)
     setExecuted(false)
