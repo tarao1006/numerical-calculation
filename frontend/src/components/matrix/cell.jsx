@@ -51,6 +51,6 @@ const FixedInput = styled.div`
   overflow-x: hidden;
 
   ${props => props.black && css`
-    background: black;
+    background: green;
   `}
 `
