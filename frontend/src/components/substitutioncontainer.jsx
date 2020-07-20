@@ -131,7 +131,7 @@ const GenerateButton = styled.button`
 
 const MatrixWrapper = styled.div`
   max-width: 700px;
-  overflow: scroll;
+  overflow: hidden;
 `
 
 const VectorWrapper = styled.div`
