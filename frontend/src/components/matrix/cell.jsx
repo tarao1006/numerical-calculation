@@ -48,7 +48,7 @@ const FixedInput = styled.div`
   color: black;
   padding: 1px 2px;
   font-size: 400 13.333px Arial;
-  overflow: hidden;
+  overflow: hidden !important;
 
   ${props => props.black && css`
     background: black;
