@@ -19,14 +19,6 @@ const MatrixContainer = ({ children, title, execute, result, iter, status, loadi
 
   const input = (
     <>
-      <IterWrapper>
-        <Matrix
-          rowCount={ size }
-          columnCount={ size }
-          values={ coefficientMatrix }
-          id={ id }
-        />
-      </IterWrapper>
       <MatrixWrapper>
       <Label>係数行列</Label>
       <Matrix
