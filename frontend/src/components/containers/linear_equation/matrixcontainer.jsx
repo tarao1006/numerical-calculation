@@ -1,18 +1,12 @@
-import React, { useEffect } from 'react'
-import styled from 'styled-components'
+import React from 'react'
+import MainContainer, { MatrixWrapper, VectorWrapper, IterWrapper } from '../maincontainer'
+import { Label } from '../parts/paraminput'
 import Matrix from '../../matrix/matrix'
 import Vector from '../../matrix/vector'
-import MatrixSize from '../parts/matrixsize'
-import ExecuteButton from '../parts/executebutton'
-import { siteTitle } from '../../common/title'
+import Scalar from '../../matrix/scalar'
 import { updateValues } from '../../../lib/linearequation'
-import { Label } from '../parts/paraminput'
 
 const MatrixContainer = ({ children, title, execute, result, iter, status, loading, executed, setStatus, setExecuted, useLinearEquation }) => {
-
-  useEffect(() => {
-    document.title = `${title} | ${siteTitle}`
-  })
 
   const { size, coefficientMatrix, rightHandSideVector, update, id } = useLinearEquation()
 
@@ -23,127 +17,68 @@ const MatrixContainer = ({ children, title, execute, result, iter, status, loadi
     setExecuted(false)
   }
 
-  return (
+  const input = (
     <>
-      <Title>
-        { title }
-      </Title>
-
-      <HeadContainer>
-        <MatrixSize setStatus={ setStatus } setExecuted={ setExecuted } />
-        <GenerateButton onClick={ handleUpdateClick } >
-          生成
-        </GenerateButton>
-      </HeadContainer>
-
-      { children }
-
-      <Container>
-        <MatrixWrapper>
-          <Label>係数行列</Label>
-          <Matrix
-            rowCount={ size }
-            columnCount={ size }
-            values={ coefficientMatrix }
-            id={ id }
-          />
-        </MatrixWrapper>
-        <VectorWrapper>
-          <Label>右辺ベクトル</Label>
-          <Vector
-            size={ size }
-            values={ rightHandSideVector }
-            id={ id }
-          />
-        </VectorWrapper>
-
-        <Wrapper>
-          <ExecuteButton execute={ execute } />
-        </Wrapper>
-
-        { loading &&
-          (<Wrapper fontSize="2">
-            計算中...
-          </Wrapper>)}
-        { executed &&
-          (<StatusWrapper status={ status }>
-            { status ? "Succeeded" : "Failed" }
-          </StatusWrapper>)}
-        { status &&
-          (<>
-            <VectorWrapper>
-            <Label>解ベクトル</Label>
-              { result }
-            </VectorWrapper>
-          </>)}
-
-      </Container>
+      <IterWrapper>
+        <Matrix
+          rowCount={ size }
+          columnCount={ size }
+          values={ coefficientMatrix }
+          id={ id }
+        />
+      </IterWrapper>
+      <MatrixWrapper>
+      <Label>係数行列</Label>
+      <Matrix
+        rowCount={ size }
+        columnCount={ size }
+        values={ coefficientMatrix }
+        id={ id }
+      />
+      </MatrixWrapper>
+      <VectorWrapper>
+        <Label>右辺ベクトル</Label>
+        <Vector
+          size={ size }
+          values={ rightHandSideVector }
+          id={ id }
+        />
+      </VectorWrapper>
     </>
+  )
+
+  const output = (
+    <>
+      <IterWrapper>
+        <Label>試行回数</Label>
+        <Scalar
+          value={ iter }
+          readOnly
+        />
+      </IterWrapper>
+      <VectorWrapper>
+        <Label>解ベクトル</Label>
+        { result }
+      </VectorWrapper>
+    </>
+  )
+
+  return (
+    <MainContainer
+      title={ title }
+      execute={ execute }
+      input={ input }
+      output={ output } 
+      iter={ iter }
+      status={ status }
+      loading={ loading }
+      executed={ executed }
+      setStatus={ setStatus }
+      setExecuted={ setExecuted }
+      handleUpdateClick={ handleUpdateClick }>
+      { children }
+    </MainContainer>
   )
 }
 
 export default MatrixContainer
-
-const Title = styled.h1`
-  font-size: 2em;
-  text-align: center;
-`
-
-const Container = styled.div`
-  max-width: 700px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-`
-
-const HeadContainer = styled.div`
-  display: flex;
-`
-
-const GenerateButton = styled.button`
-  width: 100px;
-  color: black;
-  font-size: 1em;
-  margin: 1em;
-  padding: 0.4em 1em;
-  border: none;
-  border-radius: 3px;
-  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.1), 0px 2px 10px 0px rgba(0, 0, 0, 0.08);
-  transition: all 0.25s ease 0s;
-  background: white;
-  cursor: pointer;
-  outline: none;
-  appearance: none;
-
-   &:hover {
-    background: lightgray;
-  }
-`
-
-const MatrixWrapper = styled.div`
-  max-width: 700px;
-  overflow: hidden;
-`
-
-const VectorWrapper = styled.div`
-  max-width: 700px;
-`
-
-const Wrapper = styled.div`
-  margin: 0 auto;
-  font-size: ${props => `${props.fontSize}em`}
-`
-
-const StatusWrapper = styled.div`
-  margin: 0 auto;
-  padding: 10px 100px;
-  border-radius: 10px;
-  color: white;
-  background: ${props => props.status ? "#5cb85c" : "#d9534f"};
-`
-
-const IterWrapper = styled.div`
-  margin: 0 auto;
-  font-size: 1.5em;
-`
