@@ -4,7 +4,7 @@ import MatrixSize from './parts/matrixsize'
 import ExecuteButton from './parts/executebutton'
 import { siteTitle } from '../common/title'
 
-const MainContainer = ({ children, input, title, execute, output, iter, status, loading, executed, setStatus, setExecuted, handleUpdateClick }) => {
+const MainContainer = ({ children, input, title, execute, output, status, loading, executed, setStatus, setExecuted, handleUpdateClick }) => {
 
   useEffect(() => {
     document.title = `${title} | ${siteTitle}`
