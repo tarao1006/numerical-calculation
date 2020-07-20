@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import MatrixContainer from '../../matrixcontainer'
+import MatrixContainer from '../../containers/linear_equation/matrixcontainer'
 import Vector from '../../matrix/vector'
 import useGaussSeidelMethodLinearEquation from '../../../actions/gaussSeidelMethodLinearEquationAction'
 

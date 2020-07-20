@@ -4,14 +4,14 @@ import {
   Route,
   useRouteMatch
 } from "react-router-dom";
-import GaussSeidelMethodLinearEquation from './linear_equation/gauss_seidel_method'
-import JacobMethodLinearEquation from './linear_equation/jacobi_method'
-import SorMethodLinearEquation from './linear_equation/sor_method'
-import Layout from '../layout'
-import { siteTitle } from '../title'
+import GaussSeidelMethodLinearEquation from '../linear_equation/gauss_seidel_method'
+import JacobMethodLinearEquation from '../linear_equation/jacobi_method'
+import SorMethodLinearEquation from '../linear_equation/sor_method'
+import Layout from '../../common/layout'
+import { siteTitle } from '../../common/title'
 import Card, { Main } from './card'
 
-const LinearEquation = () => {
+export const LinearEquation = () => {
 
   const { path } = useRouteMatch()
 
@@ -57,5 +57,3 @@ const Root = () => {
     </Main>
   )
 }
-
-export default LinearEquation

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import useJacobiMethodLinearEquation from '../actions/jacobiMethodLinearEquationAction'
+import useJacobiMethodLinearEquation from '../../../actions/jacobiMethodLinearEquationAction'
 import { Container, Label } from './paraminput'
 
 const MatrixSize = ({ setStatus, setExecuted }) => {

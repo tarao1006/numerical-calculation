@@ -7,8 +7,7 @@ import {
 } from "react-router-dom";
 import { Provider } from 'react-redux'
 import Home from './home'
-import LinearEquation from './components/calculator/linear_equation'
-import Other from './components/calculator/other'
+import { LinearEquation, Other } from './components/calculator/top'
 import store from './store'
 
 const App = () => {

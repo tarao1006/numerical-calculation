@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import styled, { css }from 'styled-components'
-import Link from './components/linkcomposition'
-import { siteTitle } from './components/title'
+import Link from './components/common/linkcomposition'
+import { siteTitle } from './components/common/title'
 
 const Home = () => {
 

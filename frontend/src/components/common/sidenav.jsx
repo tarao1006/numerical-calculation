@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 import { useLocation } from "react-router-dom";
-import Link from './linkcomposition'
+import Link from '../common/linkcomposition'
 
 const SideNav = () => {
 

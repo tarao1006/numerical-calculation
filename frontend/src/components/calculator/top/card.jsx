@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import Link from '../linkcomposition'
+import Link from '../../common/linkcomposition'
 
 const Card = ({ children, unimplemented, to }) => {
 

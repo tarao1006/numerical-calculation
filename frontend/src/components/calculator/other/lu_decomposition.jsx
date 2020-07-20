@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import DecompositionContainer from '../../decompositioncontainer'
+import DecompositionContainer from '../../containers/other/decompositioncontainer'
 import useForwardSubstitution from '../../../actions/other/forward_substitution'
 import Matrix from '../../matrix/matrix'
 

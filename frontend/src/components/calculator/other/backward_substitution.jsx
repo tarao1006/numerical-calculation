@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import SubstitutionContainer from '../../substitutioncontainer'
+import SubstitutionContainer from '../../containers/other/substitutioncontainer'
 import Vector from '../../matrix/vector'
 import useForwardSubstitution from '../../../actions/other/backward_substitution'
 

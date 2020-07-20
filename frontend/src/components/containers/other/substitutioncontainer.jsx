@@ -1,26 +1,40 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
-import Matrix from './matrix/matrix'
-import MatrixSize from './matrixsize'
-import ExecuteButton from './executebutton'
-import { siteTitle } from './title'
-import { updateMatrix } from '../lib/other'
-import { Label } from './paraminput'
+import UpperTriangularMatrix from '../../matrix/upper_triangular_matrix'
+import LowerTriangularMatrix from '../../matrix/lower_triangular_matrix'
+import Vector from '../../matrix/vector'
+import MatrixSize from '../parts/matrixsize'
+import ExecuteButton from '../parts/executebutton'
+import { siteTitle } from '../../common/title'
+import { updateLowerTriangularMatrix, updateUpperTriangularMatrix } from '../../../lib/other'
+import { Label } from '../parts/paraminput'
 
-const DecompositionContainer = ({ children, title, execute, result, status, loading, executed, setStatus, setExecuted, useLinearEquation }) => {
+const SubstitutionContainer = ({ children, title, execute, result, status, loading, executed, setStatus, setExecuted, useLinearEquation, forward }) => {
 
   useEffect(() => {
     document.title = `${title} | ${siteTitle}`
   })
 
-  const { size, coefficientMatrix, update, id } = useLinearEquation()
+  const { size, coefficientMatrix, rightHandSideVector, update, id } = useLinearEquation()
 
   const handleUpdateClick = () => {
-    const [s, mat, vec] = updateMatrix(size)
+    const [s, mat, vec] = forward ? updateLowerTriangularMatrix(size) : updateUpperTriangularMatrix(size)
     update(s, mat, vec)
     setStatus(false)
     setExecuted(false)
   }
+
+  const matrix = forward ?
+    <LowerTriangularMatrix
+      rowCount={ size }
+      columnCount={ size }
+      values={ coefficientMatrix }
+      id={ id }/> :
+    <UpperTriangularMatrix
+      rowCount={ size }
+      columnCount={ size }
+      values={ coefficientMatrix }
+      id={ id }/>
 
   return (
     <>
@@ -39,14 +53,17 @@ const DecompositionContainer = ({ children, title, execute, result, status, load
 
       <Container>
         <MatrixWrapper>
-          <Label>行列</Label>
-          <Matrix
-            rowCount={ size }
-            columnCount={ size }
-            values={ coefficientMatrix }
+          <Label>係数行列</Label>
+          { matrix }
+        </MatrixWrapper>
+        <VectorWrapper>
+          <Label>右辺ベクトル</Label>
+          <Vector
+            size={ size }
+            values={ rightHandSideVector }
             id={ id }
           />
-        </MatrixWrapper>
+        </VectorWrapper>
 
         <Wrapper>
           <ExecuteButton execute={ execute } />
@@ -62,18 +79,10 @@ const DecompositionContainer = ({ children, title, execute, result, status, load
           </StatusWrapper>)}
         { status &&
           (<>
-            <MatrixWrapper>
-            <Label>L行列</Label>
-              { result.mat_l }
-            </MatrixWrapper>
-            <MatrixWrapper>
-            <Label>U行列</Label>
-              { result.mat_u }
-            </MatrixWrapper>
-            <MatrixWrapper>
-            <Label>P行列</Label>
-              { result.mat_p }
-            </MatrixWrapper>
+            <VectorWrapper>
+            <Label>解ベクトル</Label>
+              { result }
+            </VectorWrapper>
           </>)}
 
       </Container>
@@ -81,7 +90,7 @@ const DecompositionContainer = ({ children, title, execute, result, status, load
   )
 }
 
-export default DecompositionContainer
+export default SubstitutionContainer
 
 const Title = styled.h1`
   font-size: 2em;
@@ -140,9 +149,4 @@ const StatusWrapper = styled.div`
   border-radius: 10px;
   color: white;
   background: ${props => props.status ? "#5cb85c" : "#d9534f"};
-`
-
-const IterWrapper = styled.div`
-  margin: 0 auto;
-  font-size: 1.5em;
 `

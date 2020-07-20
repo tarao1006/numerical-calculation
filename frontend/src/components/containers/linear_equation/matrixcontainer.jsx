@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
-import Matrix from './matrix/matrix'
-import Vector from './matrix/vector'
-import MatrixSize from './matrixsize'
-import ExecuteButton from './executebutton'
-import { siteTitle } from './title'
-import { updateValues } from '../lib/linearequation'
-import { Label } from './paraminput'
+import Matrix from '../../matrix/matrix'
+import Vector from '../../matrix/vector'
+import MatrixSize from '../parts/matrixsize'
+import ExecuteButton from '../parts/executebutton'
+import { siteTitle } from '../../common/title'
+import { updateValues } from '../../../lib/linearequation'
+import { Label } from '../parts/paraminput'
 
 const MatrixContainer = ({ children, title, execute, result, iter, status, loading, executed, setStatus, setExecuted, useLinearEquation }) => {
 

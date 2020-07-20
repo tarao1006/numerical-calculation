@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import MatrixContainer from '../../matrixcontainer'
-import ParamInput from '../../paraminput'
+import MatrixContainer from '../../containers/linear_equation/matrixcontainer'
+import ParamInput from '../../containers/parts/paraminput'
 import Vector from '../../matrix/vector'
 import useSorMethodLinearEquation from '../../../actions/sorMethodLinearEquationAction'
 

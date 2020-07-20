@@ -4,14 +4,14 @@ import {
   Route,
   useRouteMatch
 } from "react-router-dom";
-import ForwardSubstitution from './other/forward_substitution'
-import BackwardSubstitution from './other/backward_substitution'
-import LuDecomposition from './other/lu_decomposition'
-import Layout from '../layout'
-import { siteTitle } from '../title';
+import ForwardSubstitution from '../other/forward_substitution'
+import BackwardSubstitution from '../other/backward_substitution'
+import LuDecomposition from '../other/lu_decomposition'
+import Layout from '../../common/layout'
+import { siteTitle } from '../../common/title';
 import Card, { Main } from './card'
 
-const Other = () => {
+export const Other = () => {
 
   const { path} = useRouteMatch()
 
@@ -57,5 +57,3 @@ const Root = () => {
     </Main>
   )
 }
-
-export default Other
