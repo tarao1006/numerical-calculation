@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       post '/linear_equation/jacobi_method', to: 'linearequation#jacobi_method'
       post '/linear_equation/gauss_seidel_method', to: 'linearequation#gauss_seidel_method'
       post '/linear_equation/sor_method', to: 'linearequation#sor_method'
+      post 'eigenvalue/power_method', to: 'eigenvalue#power_method'
 
       post '/linear_equation/echo', to: 'linearequation#echo'
     end
