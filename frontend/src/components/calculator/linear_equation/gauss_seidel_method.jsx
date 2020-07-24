@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import MatrixContainer from '../../containers/linear_equation/matrixcontainer'
 import Vector from '../../matrix/vector'
-import useGaussSeidelMethodLinearEquation from '../../../actions/gaussSeidelMethodLinearEquationAction'
+import useMatrix from '../../../actions/useMatrix'
 
 const GaussSeidelMethodLinearEquation = () => {
   const title = "ガウス・ザイデル法"
@@ -11,9 +11,8 @@ const GaussSeidelMethodLinearEquation = () => {
   const [ loading, setLoading ] = useState(false)
   const [ solutionVector, setSolutionVector ] = useState([])
   const [ iter, setIter ] = useState(0)
-  const { size, coefficientMatrix, rightHandSideVector } = useGaussSeidelMethodLinearEquation()
 
-  const execute = async () => {
+  const execute = async ({ size, coefficientMatrix, rightHandSideVector }) => {
     setExecuted(false)
     setStatus(false)
     setLoading(true)
@@ -56,7 +55,7 @@ const GaussSeidelMethodLinearEquation = () => {
       }
       setStatus={ setStatus }
       setExecuted={ setExecuted }
-      useLinearEquation={ useGaussSeidelMethodLinearEquation }
+      useLinearEquation={ useMatrix }
     />
   )
 }

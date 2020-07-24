@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import MatrixContainer from '../../containers/linear_equation/matrixcontainer'
 import Vector from '../../matrix/vector'
-import useJacobiMethodLinearEquation from '../../../actions/jacobiMethodLinearEquationAction'
+import useMatrix from '../../../actions/useMatrix'
 
 const JacobMethodLinearEquation = () => {
   const title = "ヤコビ法"
@@ -11,9 +11,8 @@ const JacobMethodLinearEquation = () => {
   const [ loading, setLoading ] = useState(false)
   const [ solutionVector, setSolutionVector ] = useState([])
   const [iter, setIter] = useState(0)
-  const { size, coefficientMatrix, rightHandSideVector } = useJacobiMethodLinearEquation()
 
-  const execute = async () => {
+  const execute = async ({ size, coefficientMatrix, rightHandSideVector }) => {
     setExecuted(false)
     setStatus(false)
     setLoading(true)
@@ -56,7 +55,7 @@ const JacobMethodLinearEquation = () => {
       }
       setStatus={ setStatus }
       setExecuted={ setExecuted }
-      useLinearEquation={ useJacobiMethodLinearEquation }
+      useLinearEquation={ useMatrix }
     />
   )
 }

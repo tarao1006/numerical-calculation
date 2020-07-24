@@ -58,7 +58,7 @@ const MatrixContainer = ({ children, title, execute, result, iter, status, loadi
   return (
     <MainContainer
       title={ title }
-      execute={ execute }
+      execute={() => execute({ size, coefficientMatrix, rightHandSideVector }) }
       input={ input }
       output={ output } 
       iter={ iter }
